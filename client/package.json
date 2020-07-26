@@ -33,6 +33,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-testing-library": "^3.3.2"
   }
 }
