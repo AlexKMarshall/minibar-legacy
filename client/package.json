@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "3.4.0",
     "tailwindcss": "^1.5.2"
   },
   "scripts": {
@@ -19,6 +19,7 @@
     "prebuild": "NODE_ENV=production run-s build:tailwind",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "yarn test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint ./src"
   },
