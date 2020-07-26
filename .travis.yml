@@ -3,5 +3,5 @@ node_js:
   - "stable"
 script:
   - yarn build
-  - yarn run test:coverage
+  - yarn test
 after_script: npx codecov@3
