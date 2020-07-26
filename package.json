@@ -1,0 +1,9 @@
+{
+  "devDependencies": {},
+  "name": "minibar",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/AlexKMarshall/minibar.git",
+  "author": "Alex Marshall <alex.k.marshall83@gmail.com>",
+  "license": "MIT"
+}
