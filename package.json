@@ -3,10 +3,12 @@
     "install": "cd ./client && yarn install && cd ../server && yarn install",
     "start": "cd ./client && yarn start",
     "build": "cd ./client && yarn build",
-    "test": "cd ./client && yarn test",
+    "test": "cd ./client && yarn run test:coverage",
     "lint": "cd ./client && yarn run lint"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/jest": "^26.0.7"
+  },
   "name": "minibar",
   "version": "1.0.0",
   "main": "index.js",
