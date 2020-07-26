@@ -1,9 +1,10 @@
 {
   "scripts": {
-    "lint": "cd ./client && yarn run lint",
+    "install": "cd ./client && yarn install && cd ../server && yarn install",
     "start": "cd ./client && yarn start",
     "build": "cd ./client && yarn build",
-    "test": "cd ./client && yarn test"
+    "test": "cd ./client && yarn test",
+    "lint": "cd ./client && yarn run lint"
   },
   "devDependencies": {},
   "name": "minibar",
