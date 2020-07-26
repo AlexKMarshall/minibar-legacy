@@ -6,7 +6,9 @@
     "test": "cd ./client && yarn test",
     "lint": "cd ./client && yarn run lint"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/jest": "^26.0.7"
+  },
   "name": "minibar",
   "version": "1.0.0",
   "main": "index.js",
