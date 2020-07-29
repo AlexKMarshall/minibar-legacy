@@ -26,32 +26,41 @@ export default function Recipe() {
   if (!drink) return "Loading...";
 
   return (
-    <div>
-      <img src={drink.image} alt="" />
+    <main className="w-full min-h-screen bg-gray-300">
+      <div className="relative mb-6 overflow-hidden rounded-b-xl pb-5/4">
+        <img
+          src={drink.image}
+          alt=""
+          className="absolute object-cover w-full h-full"
+        />
+      </div>
 
+      <h1 className="mb-6 text-4xl font-bold text-center">{drink.name}</h1>
+      <div className="p-4 pb-8 bg-gray-200 rounded-t-xl">
+        <h3 className="text-xl font-bold text-center">Ingredients</h3>
+        <ul>
+          {drink.ingredients.map(({ name, quantity }) => (
+            <li key={name}>
+              {quantity} {name}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="p-4 -mt-4 bg-gray-300 rounded-t-xl">
+        <h3 className="text-xl font-bold text-center">Method</h3>
+        <ol>
+          {drink.instructions.map((step) => (
+            <li key={step}>{step}</li>
+          ))}
+        </ol>
+      </div>
       <button
         className={`p-4 rounded ${drink.isFav ? "bg-red-500" : "bg-blue-500"}`}
         onClick={toggleFave}
       >
         {drink.isFav ? "Remove fave" : "Add fave"}
       </button>
-
       <Link to="/">Home</Link>
-      <h2>{drink.name}</h2>
-      <h3>Ingredients</h3>
-      <ul>
-        {drink.ingredients.map(({ name, quantity }) => (
-          <li key={name}>
-            {quantity} {name}
-          </li>
-        ))}
-      </ul>
-      <h3>Method</h3>
-      <ol>
-        {drink.instructions.map((step) => (
-          <li key={step}>{step}</li>
-        ))}
-      </ol>
-    </div>
+    </main>
   );
 }
