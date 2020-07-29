@@ -1,4 +1,4 @@
-const mockDrinksExternalFormat = require("./../db/mock-db.json");
+const mockDrinksExternalFormat = require("./../db/mock-drinks-db.json");
 const { drinkItemTransform } = require("./../utils/scraping");
 
 function mockPopularDrinks() {
