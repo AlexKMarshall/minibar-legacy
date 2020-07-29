@@ -5,4 +5,12 @@ function mockPopularDrinks() {
   return mockDrinksExternalFormat.drinks.map(drinkItemTransform);
 }
 
-module.exports = { mockPopularDrinks };
+function find() {
+  return mockPopularDrinks();
+}
+
+function findById(id) {
+  return mockPopularDrinks().filter((drink) => drink._id === id);
+}
+
+module.exports = { find, findById };

@@ -1,8 +1,14 @@
 const mockDrinks = require("./../models/drink");
 
 function getDrinks(req, res) {
-  const drinks = mockDrinks.mockPopularDrinks();
-  res.status(200).send({ drinks });
+  const drinks = mockDrinks.find();
+  res.status(200).json({ drinks });
 }
 
-module.exports = { getDrinks };
+function getSingleDrink(req, res) {
+  const { id } = req.params;
+  const drink = mockDrinks.findById(id);
+  res.status(200).json({ drink });
+}
+
+module.exports = { getDrinks, getSingleDrink };
