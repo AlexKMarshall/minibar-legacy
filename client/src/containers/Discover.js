@@ -17,6 +17,7 @@ export default function Discover() {
         <li key={drink._id}>
           <img src={drink.image} alt={drink.name} />
           <Link to={`/recipe/${drink._id}`}>{drink.name}</Link>
+          {drink.isFav ? <div>Fave</div> : <div>Not a Fave</div>}
         </li>
       ))}
     </ul>

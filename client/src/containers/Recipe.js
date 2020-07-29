@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { getSingleDrink, addToFav, removeFromFav } from "./../utils/api-client";
 
@@ -13,12 +13,14 @@ export default function Recipe() {
     });
   }, [id]);
 
-  function toggleFave() {
+  async function toggleFave() {
+    let updatedDrink;
     if (drink.isFav) {
-      return removeFromFav(id).then((updatedDrink) => setDrink(updatedDrink));
+      updatedDrink = await removeFromFav(id);
     } else {
-      return addToFav(id).then((updatedDrink) => setDrink(updatedDrink));
+      updatedDrink = await addToFav(id);
     }
+    setDrink(updatedDrink);
   }
 
   if (!drink) return "Loading...";
@@ -34,6 +36,7 @@ export default function Recipe() {
         {drink.isFav ? "Remove fave" : "Add fave"}
       </button>
 
+      <Link to="/">Home</Link>
       <h2>{drink.name}</h2>
       <h3>Ingredients</h3>
       <ul>
