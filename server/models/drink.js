@@ -10,7 +10,7 @@ function find() {
 }
 
 function findById(id) {
-  return mockPopularDrinks().filter((drink) => drink._id === id);
+  return mockPopularDrinks().find((drink) => drink._id === id);
 }
 
 module.exports = { find, findById };
