@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function fetchDrinks() {
   return fetch("http://localhost:3001/api/drinks")
@@ -19,7 +20,7 @@ export default function Discover() {
       {drinks.map((drink) => (
         <li key={drink._id}>
           <img src={drink.image} alt={drink.name} />
-          {drink.name}
+          <Link to={`/recipe/${drink._id}`}>{drink.name}</Link>
         </li>
       ))}
     </ul>
