@@ -6,8 +6,24 @@ export function getDrinks() {
     .then((data) => data.drinks);
 }
 
-export function getSingleDrink(id) {
-  return fetch(`${API_URL}/drinks/${id}`)
+export function getSingleDrink(drinkId) {
+  return fetch(`${API_URL}/drinks/${drinkId}`)
+    .then((res) => res.json())
+    .then((data) => data.drink);
+}
+
+export function addToFav(drinkId) {
+  return fetch(`${API_URL}/drinks/${drinkId}/add_fav`, {
+    method: "POST",
+  })
+    .then((res) => res.json())
+    .then((data) => data.drink);
+}
+
+export function removeFromFav(drinkId) {
+  return fetch(`${API_URL}/drinks/${drinkId}/remove_fav`, {
+    method: "POST",
+  })
     .then((res) => res.json())
     .then((data) => data.drink);
 }
