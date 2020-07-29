@@ -1,7 +1,8 @@
 import React from "react";
+import Discover from "./containers/Discover";
 
 function App() {
-  return <div className="App bg-gray-300">App</div>;
+  return <Discover />;
 }
 
 export default App;
