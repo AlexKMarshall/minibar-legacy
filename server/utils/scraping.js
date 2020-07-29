@@ -12,7 +12,8 @@ function drinkItemTransform(cocktailDbDrink) {
     name,
     instructions: strInstructions
       .split(".")
-      .map((instruction) => instruction.trim()),
+      .map((instruction) => instruction.trim())
+      .filter(Boolean),
     ingredients: transformIngredients(cocktailDbDrink),
   };
 }
