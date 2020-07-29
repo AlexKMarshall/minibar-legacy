@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function fetchDrinks() {
-  return fetch("http://localhost:3001/api/drinks")
-    .then((res) => res.json())
-    .then((data) => data.drinks);
-}
+import { getDrinks } from "./../utils/api-client";
 
 export default function Discover() {
   const [drinks, setDrinks] = useState([]);
 
   useEffect(() => {
-    fetchDrinks().then((drinks) => setDrinks(drinks));
+    getDrinks().then((drinks) => setDrinks(drinks));
   }, []);
 
   if (!drinks.length) return "Loading...";

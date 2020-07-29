@@ -1,23 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function getRecipe(id) {
-  return fetch(`http://localhost:3001/api/drinks/${id}`)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      return data;
-    })
-    .then((data) => data.drink);
-}
+import { getSingleDrink } from "./../utils/api-client";
 
 export default function Recipe() {
   const [drink, setDrink] = useState();
   const { id } = useParams();
 
   useEffect(() => {
-    getRecipe(id).then((fetchedDrink) => {
-      console.log({ fetchedDrink });
+    getSingleDrink(id).then((fetchedDrink) => {
       setDrink(fetchedDrink);
     });
   }, [id]);
