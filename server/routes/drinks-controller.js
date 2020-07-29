@@ -27,10 +27,11 @@ async function getDrinks(req, res) {
   res.status(200).json({ drinks });
 }
 
-function getSingleDrink(req, res) {
+async function getSingleDrink(req, res) {
   const { id } = req.params;
   const dbDrink = mockDrinks.findById(id);
-  const drink = drinkWithFav(dbDrink);
+  const user = await getUser();
+  const drink = drinkWithFav(dbDrink, user.favDrinks);
   res.status(200).json({ drink });
 }
 
