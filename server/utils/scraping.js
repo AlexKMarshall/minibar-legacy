@@ -1,8 +1,14 @@
 function drinkItemTransform(cocktailDbDrink) {
-  const { idDrink: id, strDrink: name, strInstructions } = cocktailDbDrink;
+  const {
+    idDrink: id,
+    strDrink: name,
+    strInstructions,
+    strDrinkThumb: image,
+  } = cocktailDbDrink;
   return {
     _id: id,
     externalId: id,
+    image,
     name,
     instructions: strInstructions
       .split(".")
