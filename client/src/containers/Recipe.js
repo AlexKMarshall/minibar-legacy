@@ -36,12 +36,13 @@ export default function Recipe() {
       </div>
 
       <h1 className="mb-6 text-4xl font-bold text-center">{drink.name}</h1>
-      <div className="p-4 pb-8 bg-gray-200 rounded-t-xl">
+      <div className="px-6 pt-4 pb-8 bg-gray-200 rounded-t-xl">
         <h3 className="text-xl font-bold text-center">Ingredients</h3>
-        <ul>
+        <ul className="my-4 divide-y">
           {drink.ingredients.map(({ name, quantity }) => (
-            <li key={name}>
-              {quantity} {name}
+            <li key={name} className="flex justify-between py-4">
+              <div>{name}</div>
+              <div>{quantity}</div>
             </li>
           ))}
         </ul>
