@@ -1,7 +1,8 @@
 const mockDrinks = require("./../models/drink");
 
 function getDrinks(req, res) {
-  res.json(mockDrinks.drinks);
+  const drinks = mockDrinks.mockPopularDrinks();
+  res.json({ drinks });
 }
 
 module.exports = { getDrinks };

@@ -1,3 +1,10 @@
+const mockDrinksExternalFormat = require("./../db/mock-db.json");
+const { drinkItemTransform } = require("./../utils/scraping");
+
+function mockPopularDrinks() {
+  return mockDrinksExternalFormat.drinks.map(drinkItemTransform);
+}
+
 const drinkShape = {
   _id: "11000abc124",
   coktailDBId: "11000",
@@ -19,4 +26,4 @@ const drinkShape = {
   ],
 };
 
-module.exports = { drinks: [drinkShape] };
+module.exports = { mockPopularDrinks };
