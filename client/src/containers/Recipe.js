@@ -68,12 +68,14 @@ export default function Recipe() {
           ))}
         </ol>
       </div>
-      <button
-        className={`p-4 rounded ${drink.isFav ? "bg-red-500" : "bg-blue-500"}`}
-        onClick={toggleFave}
-      >
-        {drink.isFav ? "Remove fave" : "Add fave"}
-      </button>
+      <footer className="flex justify-center m-6">
+        <button
+          className={`py-2 px-3 rounded bg-gray-700 text-gray-100 text-sm`}
+          onClick={toggleFave}
+        >
+          {drink.isFav ? "Remove favorite" : "Add as favorite"}
+        </button>
+      </footer>
     </main>
   );
 }
