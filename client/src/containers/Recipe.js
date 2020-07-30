@@ -50,7 +50,7 @@ export default function Recipe() {
       <div className="p-4 -mt-4 bg-gray-300 rounded-t-xl">
         <h3 className="text-xl font-bold text-center">Method</h3>
         <ol className="my-4 list-decimal list-inside">
-          {drink.instructions.map((step) => (
+          {drink.method.map((step) => (
             <li key={step} className="py-2">
               {step}
             </li>

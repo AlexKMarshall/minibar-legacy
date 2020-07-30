@@ -27,7 +27,6 @@ async function getDrinks(req, res) {
 
 async function getSingleDrink(req, res) {
   const { id } = req.params;
-  console.log(id);
   const dbDrink = await Drink.findById(id);
   const user = await getUser();
   const drink = drinkWithFav(dbDrink, user);
