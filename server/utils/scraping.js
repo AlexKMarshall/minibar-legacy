@@ -1,5 +1,10 @@
+require("dotenv").config();
 const fetch = require("node-fetch");
 const Drink = require("./../models/drink");
+
+const API_KEY = process.env.COCKTAIL_DB_KEY || 1;
+
+console.log(API_KEY);
 
 const aToZ = [
   "a",
@@ -50,6 +55,14 @@ async function fetchAllCocktails() {
   return Promise.all(fetches).then((values) => values.flat());
 }
 
+function fetchPopular() {
+  return fetch(
+    `https://www.thecocktaildb.com/api/json/v2/${API_KEY}/popular.php`
+  )
+    .then((res) => res.json())
+    .then(({ drinks }) => drinks);
+}
+
 function drinkItemTransform(cocktailDbDrink) {
   const {
     idDrink: id,
@@ -91,6 +104,20 @@ async function populateDrinksDB() {
   console.log(savedDrinks);
 }
 
-populateDrinksDB();
+fetchPopular();
+
+async function populatePopular() {
+  const popularDrinks = await fetchPopular();
+  const ids = popularDrinks.map(({ idDrink }) => idDrink);
+  for (const id of ids) {
+    const drink = await Drink.findOne({ externalId: id });
+    if (drink) {
+      drink.popular = true;
+      await drink.save();
+    }
+  }
+}
+
+populatePopular();
 
 module.exports = { drinkItemTransform };
