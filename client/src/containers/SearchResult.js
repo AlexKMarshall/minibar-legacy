@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 
 import { searchDrinks } from "../utils/api-client";
 
@@ -24,9 +24,11 @@ function useSearchDrinks() {
 
 export default function Discover() {
   const { drinks, searchTerm } = useSearchDrinks();
+  const history = useHistory();
 
   function onSearchSubmit(searchTerm) {
     console.log("submitting search: ", searchTerm);
+    history.push(`/search?ingredient=${searchTerm}`);
   }
 
   if (!drinks.length) return "Loading...";
