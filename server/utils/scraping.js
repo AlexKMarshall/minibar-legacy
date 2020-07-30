@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+const Drink = require("./../models/drink");
 
 const aToZ = [
   "a",
@@ -27,16 +28,26 @@ const aToZ = [
   "x",
   "y",
   "z",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "0",
 ];
 
-function fetchData() {
+async function fetchAllCocktails() {
   const fetches = aToZ.map((letter) =>
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`)
       .then((res) => res.json())
       .then(({ drinks }) => (drinks ? drinks.map(drinkItemTransform) : null))
   );
 
-  return Promise.all(fetches).then(console.log);
+  return Promise.all(fetches).then((values) => values.flat());
 }
 
 function drinkItemTransform(cocktailDbDrink) {
@@ -47,11 +58,10 @@ function drinkItemTransform(cocktailDbDrink) {
     strDrinkThumb: image,
   } = cocktailDbDrink;
   return {
-    _id: id,
     externalId: id,
     image,
     name,
-    instructions: strInstructions
+    method: strInstructions
       .split(".")
       .map((instruction) => instruction.trim())
       .filter(Boolean),
@@ -71,6 +81,16 @@ function transformIngredients(cocktailDbDrink) {
   return ingredients;
 }
 
-fetchData();
+async function populateDrinksDB() {
+  await Drink.deleteMany();
+  const allDrinks = await fetchAllCocktails().then((drinks) =>
+    drinks.filter((drink) => drink && drink.externalId && drink.name)
+  );
+  await Drink.insertMany(allDrinks);
+  const savedDrinks = await Drink.find({});
+  console.log(savedDrinks);
+}
+
+populateDrinksDB();
 
 module.exports = { drinkItemTransform };
