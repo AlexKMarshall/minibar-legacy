@@ -45,7 +45,7 @@ export default function Discover() {
           />
           <SearchControl onSearchSubmit={onSearchSubmit} />
         </div>
-        <h2 className="mb-4 text-2xl font-bold">Featured drinks</h2>
+        <h2 className="mb-4 text-2xl font-display">Featured drinks</h2>
         <ul className="flex w-full overflow-x-auto">
           {drinks.map((drink) => (
             <li key={drink._id}>
@@ -58,7 +58,7 @@ export default function Discover() {
                   />
                 </div>
                 <Link to={`/recipe/${drink._id}`}>
-                  <h3 className="py-4 text-lg font-bold">{drink.name}</h3>
+                  <h3 className="py-4 text-lg font-semibold">{drink.name}</h3>
                 </Link>
               </div>
             </li>
