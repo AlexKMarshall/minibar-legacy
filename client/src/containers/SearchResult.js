@@ -12,8 +12,9 @@ function useSearchDrinks() {
 
   useEffect(() => {
     const query = new URLSearchParams(search);
-    setSearchTerm(query.get("ingredient"));
-    searchDrinks(searchTerm).then((results) => setDrinks(results));
+    const term = query.get("ingredient");
+    setSearchTerm(term);
+    searchDrinks(term).then((results) => setDrinks(results));
   }, [search]);
 
   return {
