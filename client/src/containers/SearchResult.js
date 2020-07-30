@@ -5,15 +5,25 @@ import { searchDrinks } from "../utils/api-client";
 
 import SearchControl from "../components/SearchControl";
 
-export default function Discover() {
+function useSearchDrinks() {
   const [drinks, setDrinks] = useState([]);
   const { search } = useLocation();
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const query = new URLSearchParams(search);
-    const searchTerm = query.get("ingredient");
-    searchDrinks(searchTerm).then((drinks) => setDrinks(drinks));
+    setSearchTerm(query.get("ingredient"));
+    searchDrinks(searchTerm).then((results) => setDrinks(results));
   }, [search]);
+
+  return {
+    drinks,
+    searchTerm,
+  };
+}
+
+export default function Discover() {
+  const { drinks, searchTerm } = useSearchDrinks();
 
   function onSearchSubmit(searchTerm) {
     console.log("submitting search: ", searchTerm);
@@ -31,7 +41,9 @@ export default function Discover() {
         />
         <SearchControl onSearchSubmit={onSearchSubmit} />
       </div>
-      <h2 className="mb-4 text-2xl font-bold">Search results</h2>
+      <h2 className="mb-4 text-2xl font-bold">
+        Search results for {searchTerm}
+      </h2>
       <ul className="flex w-full overflow-x-auto">
         {drinks.map((drink) => (
           <li key={drink._id}>
