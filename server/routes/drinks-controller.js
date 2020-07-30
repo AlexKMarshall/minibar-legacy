@@ -61,6 +61,7 @@ async function removeFavorite(req, res) {
 
   const { user } = req;
   user.favDrinks = removeFav(user.favDrinks, drinkId);
+  await user.save();
   return res.status(200).json({ drink: drinkWithFav(drink, user) });
 }
 
