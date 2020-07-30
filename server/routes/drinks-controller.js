@@ -1,4 +1,4 @@
-const mockDrinks = require("./../models/drink");
+const Drink = require("./../models/drink");
 const { userModel } = require("./../models/user");
 
 const MOCK_USERNAME = "alex";
@@ -15,11 +15,11 @@ async function getUser() {
 }
 
 function drinkWithFav(drink, { favDrinks }) {
-  return { ...drink, isFav: favDrinks.includes(drink._id) };
+  return { ...drink.toObject(), isFav: favDrinks.includes(drink._id) };
 }
 
 async function getDrinks(req, res) {
-  const dbDrinks = mockDrinks.find();
+  const dbDrinks = await Drink.find({});
   const user = await getUser();
   const drinks = dbDrinks.map((dbDrink) => drinkWithFav(dbDrink, user));
   res.status(200).json({ drinks });
@@ -27,7 +27,8 @@ async function getDrinks(req, res) {
 
 async function getSingleDrink(req, res) {
   const { id } = req.params;
-  const dbDrink = mockDrinks.findById(id);
+  console.log(id);
+  const dbDrink = await Drink.findById(id);
   const user = await getUser();
   const drink = drinkWithFav(dbDrink, user);
   res.status(200).json({ drink });
@@ -35,7 +36,7 @@ async function getSingleDrink(req, res) {
 
 async function addFavorite(req, res) {
   const { drinkId } = req.params;
-  const drink = mockDrinks.findById(drinkId);
+  const drink = await Drink.findById(drinkId);
   if (!drink) {
     return res.status(404).json({ message: `No drink with that id` });
   }
@@ -51,7 +52,7 @@ async function addFavorite(req, res) {
 
 async function removeFavorite(req, res) {
   const { drinkId } = req.params;
-  const drink = mockDrinks.findById(drinkId);
+  const drink = await Drink.findById(drinkId);
   if (!drink) {
     return res.status(404).json({ message: `No drink with that id` });
   }
