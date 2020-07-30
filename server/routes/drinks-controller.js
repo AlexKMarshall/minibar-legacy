@@ -5,9 +5,16 @@ function drinkWithFav(drink, { favDrinks }) {
 }
 
 async function getDrinks(req, res) {
-  const dbDrinks = await Drink.find({ popular: true });
+  const { ingredient } = req.query;
+  let dbResult;
+  if (ingredient) {
+    dbResult = await Drink.searchIngredient(ingredient);
+  } else {
+    dbResult = await Drink.find({ popular: true });
+  }
+
   const { user } = req;
-  const drinks = dbDrinks.map((dbDrink) => drinkWithFav(dbDrink, user));
+  const drinks = dbResult.map((dbDrink) => drinkWithFav(dbDrink, user));
   res.status(200).json({ drinks });
 }
 

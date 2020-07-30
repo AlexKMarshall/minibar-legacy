@@ -13,21 +13,12 @@ const drinkSchema = mongoose.Schema({
   popular: { type: Boolean, default: false },
 });
 
-const drinkModel = mongoose.model("Drink", drinkSchema);
+drinkSchema.statics.searchIngredient = function (ingredientName) {
+  return this.find({
+    "ingredients.name": new RegExp(ingredientName.trim(), "i"),
+  });
+};
 
-// const mockDrinksExternalFormat = require("./../db/mock-drinks-db.json");
-// const { drinkItemTransform } = require("./../utils/scraping");
+const Drink = mongoose.model("Drink", drinkSchema);
 
-// function mockPopularDrinks() {
-//   return mockDrinksExternalFormat.drinks.map(drinkItemTransform);
-// }
-
-// function find() {
-//   return mockPopularDrinks();
-// }
-
-// function findById(id) {
-//   return mockPopularDrinks().find((drink) => drink._id === id);
-// }
-
-module.exports = drinkModel;
+module.exports = Drink;
