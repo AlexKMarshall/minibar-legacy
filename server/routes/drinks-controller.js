@@ -1,6 +1,8 @@
 const Drink = require("./../models/drink");
 
 function drinkWithFav(drink, { favDrinks }) {
+  if (!favDrinks) return { ...drink.toObject(), isFav: false };
+
   return { ...drink.toObject(), isFav: favDrinks.includes(drink._id) };
 }
 
@@ -15,6 +17,17 @@ async function getDrinks(req, res) {
 
   const { user } = req;
   const drinks = dbResult.map((dbDrink) => drinkWithFav(dbDrink, user));
+  res.status(200).json({ drinks });
+}
+
+async function getFavoriteDrinks(req, res) {
+  const { user } = req;
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  const dbDrinks = await Drink.find({ _id: { $in: user.favDrinks } });
+  const drinks = dbDrinks.map((dbDrink) => drinkWithFav(dbDrink, user));
   res.status(200).json({ drinks });
 }
 
@@ -59,4 +72,10 @@ function removeFav(oldFavs, drinkId) {
   return oldFavs.filter((id) => id !== drinkId);
 }
 
-module.exports = { getDrinks, getSingleDrink, addFavorite, removeFavorite };
+module.exports = {
+  getDrinks,
+  getSingleDrink,
+  addFavorite,
+  removeFavorite,
+  getFavoriteDrinks,
+};

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Discover from "./containers/Discover";
 import Recipe from "./containers/Recipe";
 import SearchResult from "./containers/SearchResult";
+import Favorites from "./containers/Favorites";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
         </Route>
         <Route path="/search">
           <SearchResult />
+        </Route>
+        <Route path="/favorites">
+          <Favorites />
         </Route>
         <Route path="/">
           <Discover />
