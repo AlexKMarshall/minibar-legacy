@@ -10,23 +10,18 @@ const userSchema = mongoose.Schema({
 
 const userModel = mongoose.model("User", userSchema);
 
-const favDrinks = new Set();
+// const favDrinks = new Set();
 
-function getFavoriteDrinks() {
-  return favDrinks;
-}
+// function getFavoriteDrinks() {
+//   return favDrinks;
+// }
 
-function addDrinkToFaves(drinkId) {
-  favDrinks.add(drinkId);
-}
+// function addDrinkToFaves(drinkId) {
+//   favDrinks.add(drinkId);
+// }
 
-function removeDrinkFromFaves(drinkId) {
-  favDrinks.delete(drinkId);
-}
+// function removeDrinkFromFaves(drinkId) {
+//   favDrinks.delete(drinkId);
+// }
 
-module.exports = {
-  userModel,
-  addDrinkToFaves,
-  removeDrinkFromFaves,
-  getFavoriteDrinks,
-};
+module.exports = userModel;
