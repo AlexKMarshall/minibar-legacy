@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 
-import { getDrinks } from "./../utils/api-client";
+import { getDrinks, getFavoriteDrinks } from "./../utils/api-client";
 
 import SearchControl from "../components/SearchControl";
 import SideNav from "../components/SideNav";
+import CompactList from "../components/CompactList";
 
 export default function Discover() {
   const [drinks, setDrinks] = useState([]);
+  const [secondaryDrinks, setSecondaryDrinks] = useState([]);
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
     getDrinks().then((drinks) => setDrinks(drinks));
+  }, []);
+
+  useEffect(() => {
+    getFavoriteDrinks().then((favDrinks) => setSecondaryDrinks(favDrinks));
   }, []);
 
   function onSearchSubmit(searchTerm) {
@@ -58,6 +64,18 @@ export default function Discover() {
             </li>
           ))}
         </ul>
+        <nav className="grid grid-cols-3 my-4 bg-gray-200 divide-x divide-gray-400 rounded-lg">
+          <div className="py-2 text-xs font-semibold text-center text-gray-600">
+            Newest
+          </div>
+          <div className="py-2 text-xs font-semibold text-center text-gray-800">
+            Favorites
+          </div>
+          <div className="py-2 text-xs font-semibold text-center text-gray-600">
+            Random
+          </div>
+        </nav>
+        <CompactList drinks={secondaryDrinks} />
       </main>
     </>
   );
