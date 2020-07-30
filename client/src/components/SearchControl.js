@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Search({ onSearchSubmit }) {
+export default function SearchControl({ onSearchSubmit }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   function onSubmit(e) {

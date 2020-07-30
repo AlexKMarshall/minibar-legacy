@@ -6,6 +6,12 @@ export function getDrinks() {
     .then((data) => data.drinks);
 }
 
+export function searchDrinks(searchTerm) {
+  return fetch(`${API_URL}/drinks?ingredient=${searchTerm}`)
+    .then((res) => res.json())
+    .then((data) => data.drinks);
+}
+
 export function getSingleDrink(drinkId) {
   return fetch(`${API_URL}/drinks/${drinkId}`)
     .then((res) => res.json())
