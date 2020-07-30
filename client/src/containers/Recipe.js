@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 
 import { getSingleDrink, addToFav, removeFromFav } from "./../utils/api-client";
 
 export default function Recipe() {
   const [drink, setDrink] = useState();
   const { id } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     getSingleDrink(id).then((fetchedDrink) => {
@@ -35,7 +36,7 @@ export default function Recipe() {
         />
       </div>
 
-      <Link to="/">
+      <button onClick={() => history.goBack()}>
         <div className="fixed top-0 flex items-center justify-center w-12 h-12 mt-10 ml-6 text-gray-800 bg-gray-200 rounded-full">
           <svg fill="currentColor" viewBox="0 0 20 20" className="w-4 h-4">
             <path
@@ -45,7 +46,7 @@ export default function Recipe() {
             ></path>
           </svg>
         </div>
-      </Link>
+      </button>
       <h1 className="mb-6 text-4xl font-bold text-center">{drink.name}</h1>
       <div className="px-6 pt-4 pb-8 bg-gray-200 rounded-t-xl">
         <h3 className="text-xl font-bold text-center">Ingredients</h3>

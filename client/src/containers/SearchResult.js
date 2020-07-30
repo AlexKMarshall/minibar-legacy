@@ -5,7 +5,7 @@ import { searchDrinks } from "../utils/api-client";
 
 import SearchControl from "../components/SearchControl";
 
-function useSearchDrinks() {
+function useSearchDrinksByIngredient() {
   const [drinks, setDrinks] = useState([]);
   const { search } = useLocation();
   const [searchTerm, setSearchTerm] = useState("");
@@ -24,11 +24,10 @@ function useSearchDrinks() {
 }
 
 export default function Discover() {
-  const { drinks, searchTerm } = useSearchDrinks();
+  const { drinks, searchTerm } = useSearchDrinksByIngredient();
   const history = useHistory();
 
   function onSearchSubmit(searchTerm) {
-    console.log("submitting search: ", searchTerm);
     history.push(`/search?ingredient=${searchTerm}`);
   }
 
