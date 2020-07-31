@@ -5,7 +5,7 @@ import SideNav from "../components/SideNav";
 import SearchControl from "../components/SearchControl";
 
 export default function Layout({ children }) {
-  const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const history = useHistory();
 
   function onSearchSubmit(searchTerm) {
@@ -14,12 +14,12 @@ export default function Layout({ children }) {
   }
 
   function toggleNav() {
-    setIsNavExpanded((isNavExpanded) => !isNavExpanded);
+    setIsNavOpen((isNavExpanded) => !isNavExpanded);
   }
 
   return (
     <>
-      <SideNav isExpanded={isNavExpanded} toggleExpanded={toggleNav} />
+      {isNavOpen && <SideNav close={() => setIsNavOpen(false)} />}
       <main className="min-h-screen p-6 pt-10 bg-gray-300">
         <div className="flex justify-between mb-6">
           <img

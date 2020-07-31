@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { ReactQueryDevtools } from "react-query-devtools";
+// import { ReactQueryDevtools } from "react-query-devtools";
 
 import Discover from "./containers/Discover";
 import Recipe from "./containers/Recipe";
@@ -34,7 +34,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-      <ReactQueryDevtools />
+      {/* <ReactQueryDevtools /> */}
     </>
   );
 }
