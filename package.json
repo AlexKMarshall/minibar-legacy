@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "install": "yarn install && cd ./client && yarn install && cd ../server && yarn install",
+    "install": "yarn install && cd ./client && yarn install && cd ../server && yarn install && yarn run init:db",
     "init:db": "yarn run import:users && yarn run import:drinks",
     "import:users": "mongoimport --db=minibarBU --file=./sample-data/users.json --drop",
     "import:drinks": "mongoimport --db=minibarBU --file=./sample-data/drinks.json --drop",
