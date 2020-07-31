@@ -5,6 +5,7 @@ import Discover from "./containers/Discover";
 import Recipe from "./containers/Recipe";
 import SearchResult from "./containers/SearchResult";
 import Favorites from "./containers/Favorites";
+import Layout from "./components/Layout";
 
 function App() {
   return (
@@ -14,13 +15,19 @@ function App() {
           <Recipe />
         </Route>
         <Route path="/search">
-          <SearchResult />
+          <Layout>
+            <SearchResult />
+          </Layout>
         </Route>
         <Route path="/favorites">
-          <Favorites />
+          <Layout>
+            <Favorites />
+          </Layout>
         </Route>
         <Route path="/">
-          <Discover />
+          <Layout>
+            <Discover />
+          </Layout>
         </Route>
       </Switch>
     </Router>
