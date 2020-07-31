@@ -18,6 +18,9 @@ module.exports = {
       borderRadius: {
         xl: "1rem",
       },
+      colors: {
+        indigo: "#242038",
+      },
     },
   },
   variants: {},
