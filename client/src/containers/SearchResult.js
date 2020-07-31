@@ -43,7 +43,7 @@ export default function Discover() {
         />
         <SearchControl onSearchSubmit={onSearchSubmit} />
       </div>
-      <h2 className="mb-4 text-2xl font-bold">
+      <h2 className="mb-4 text-2xl font-display">
         Search results for {searchTerm}
       </h2>
       <ul className="space-y-3">
@@ -60,7 +60,7 @@ export default function Discover() {
             </div>
             <div className="flex-grow px-3 py-2">
               <Link to={`/recipe/${drink._id}`}>
-                <h3 className="font-semibold">{drink.name}</h3>
+                <h3 className="font-semibold font-display">{drink.name}</h3>
               </Link>
               <p className="text-xs">
                 {drink.ingredients.map(({ name }) => name).join(", ")}

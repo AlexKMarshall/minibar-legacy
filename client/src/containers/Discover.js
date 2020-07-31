@@ -58,7 +58,9 @@ export default function Discover() {
                   />
                 </div>
                 <Link to={`/recipe/${drink._id}`}>
-                  <h3 className="py-4 text-lg font-semibold">{drink.name}</h3>
+                  <h3 className="py-4 text-lg font-semibold font-display">
+                    {drink.name}
+                  </h3>
                 </Link>
               </div>
             </li>

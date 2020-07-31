@@ -38,7 +38,7 @@ export default function Recipe() {
 
       <button onClick={() => history.goBack()}>
         <div className="fixed top-0 flex items-center justify-center w-12 h-12 mt-10 ml-6 text-gray-800 bg-gray-200 rounded-full">
-          <svg fill="currentColor" viewBox="0 0 20 20" className="w-4 h-4">
+          <svg fill="currentColor" viewBox="0 0 20 20" className="w-6 h-6">
             <path
               fillRule="evenodd"
               d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
@@ -47,9 +47,9 @@ export default function Recipe() {
           </svg>
         </div>
       </button>
-      <h1 className="mb-6 text-4xl font-bold text-center">{drink.name}</h1>
+      <h1 className="mb-6 text-4xl text-center font-display">{drink.name}</h1>
       <div className="px-6 pt-4 pb-8 bg-gray-200 rounded-t-xl">
-        <h3 className="text-xl font-bold text-center">Ingredients</h3>
+        <h3 className="text-xl text-center font-display">Ingredients</h3>
         <ul className="my-4 divide-y">
           {drink.ingredients.map(({ name, quantity }) => (
             <li key={name} className="flex justify-between py-4">
@@ -60,7 +60,7 @@ export default function Recipe() {
         </ul>
       </div>
       <div className="p-4 -mt-4 bg-gray-300 rounded-t-xl">
-        <h3 className="text-xl font-bold text-center">Method</h3>
+        <h3 className="text-xl text-center font-display">Method</h3>
         <ol className="my-4 list-decimal list-inside">
           {drink.method.map((step) => (
             <li key={step} className="py-2">
