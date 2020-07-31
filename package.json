@@ -1,13 +1,17 @@
 {
   "scripts": {
     "install": "cd ./client && yarn install && cd ../server && yarn install",
-    "start": "cd ./client && yarn start",
+    "start": "",
+    "start:client": "cd ./client && BROWSER=none yarn start && cd ..",
+    "start:server": "node ./server",
+    "start:server-client": "start-test start:server 3001/api/drinks start:client",
     "build": "cd ./client && yarn build",
     "test": "cd ./client && yarn run test:coverage",
     "lint": "cd ./client && yarn run lint"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.7"
+    "@types/jest": "^26.0.7",
+    "start-server-and-test": "^1.11.2"
   },
   "name": "minibar",
   "version": "1.0.0",
