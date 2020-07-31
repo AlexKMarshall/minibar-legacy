@@ -46,7 +46,7 @@ export default function Discover() {
           <SearchControl onSearchSubmit={onSearchSubmit} />
         </div>
         <h2 className="mb-4 text-2xl font-display">Featured drinks</h2>
-        <ul className="flex w-full overflow-x-auto">
+        <ul className="flex px-6 -mx-6 overflow-x-auto">
           {drinks.map((drink) => (
             <li key={drink._id}>
               <div className="mr-4" style={{ width: "50vw" }}>
