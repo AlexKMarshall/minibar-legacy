@@ -19,7 +19,7 @@ export default function Layout({ children }) {
 
   return (
     <>
-      {isNavOpen && <SideNav close={() => setIsNavOpen(false)} />}
+      <SideNav isOpen={isNavOpen} close={() => setIsNavOpen(false)} />
       <main className="min-h-screen p-6 pt-10 bg-gray-300">
         <div className="flex justify-between mb-6">
           <img
