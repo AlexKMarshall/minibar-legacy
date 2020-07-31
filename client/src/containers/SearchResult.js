@@ -28,7 +28,7 @@ export default function Discover() {
 
   return (
     <>
-      <h2 className="mb-4 text-2xl font-display">
+      <h2 className="mb-4 text-xl font-display">
         Search results for {searchTerm}
       </h2>
       <ul className="space-y-3">
