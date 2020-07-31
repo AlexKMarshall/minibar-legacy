@@ -1,30 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 
-import { getSingleDrink, addToFav, removeFromFav } from "./../utils/api-client";
+import { getSingleDrink, updateFav } from "./../utils/api-client";
+import { useQuery, useMutation, queryCache } from "react-query";
 
 export default function Recipe() {
-  const [drink, setDrink] = useState();
   const { id } = useParams();
   const history = useHistory();
 
-  useEffect(() => {
-    getSingleDrink(id).then((fetchedDrink) => {
-      setDrink(fetchedDrink);
-    });
-  }, [id]);
+  const { isLoading, error, data: drink } = useQuery(
+    ["drink", id],
+    getSingleDrink
+  );
+  const [mutate] = useMutation(updateFav, {
+    onSuccess: (data) => {
+      queryCache.setQueryData(["drink", id], data);
+    },
+  });
 
   async function toggleFave() {
-    let updatedDrink;
-    if (drink.isFav) {
-      updatedDrink = await removeFromFav(id);
-    } else {
-      updatedDrink = await addToFav(id);
+    const action = drink.isFav ? "remove" : "add";
+
+    try {
+      await mutate({ id, action });
+    } catch (e) {
+      console.log("something went wrong ", e);
     }
-    setDrink(updatedDrink);
   }
 
-  if (!drink) return "Loading...";
+  if (isLoading) return "Loading...";
+  if (error) return "An error ocurred " + error;
 
   return (
     <main className="relative w-full min-h-screen bg-gray-300">

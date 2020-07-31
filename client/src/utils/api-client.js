@@ -18,8 +18,16 @@ export function searchDrinks(searchTerm) {
     .then((data) => data.drinks);
 }
 
-export function getSingleDrink(drinkId) {
+export function getSingleDrink(_key, drinkId) {
   return fetch(`${API_URL}/drinks/${drinkId}`)
+    .then((res) => res.json())
+    .then((data) => data.drink);
+}
+
+export function updateFav({ id, action }) {
+  return fetch(`${API_URL}/drinks/${id}/${action}_fav`, {
+    method: "POST",
+  })
     .then((res) => res.json())
     .then((data) => data.drink);
 }
