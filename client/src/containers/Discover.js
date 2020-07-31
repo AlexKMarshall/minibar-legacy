@@ -50,7 +50,7 @@ export default function Discover() {
           {drinks.map((drink) => (
             <li key={drink._id}>
               <div className="mr-4" style={{ width: "50vw" }}>
-                <div className="relative overflow-hidden bg-red-300 rounded-lg pb-5/6">
+                <div className="relative overflow-hidden rounded-lg pb-5/6">
                   <img
                     src={drink.image}
                     alt={drink.name}
