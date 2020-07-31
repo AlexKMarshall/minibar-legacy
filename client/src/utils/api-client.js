@@ -13,7 +13,7 @@ export function getFavoriteDrinks() {
 }
 
 export function searchDrinks(searchTerm) {
-  return fetch(`${API_URL}/drinks?ingredient=${searchTerm}`)
+  return fetch(`${API_URL}/drinks?q=${searchTerm}`)
     .then((res) => res.json())
     .then((data) => data.drinks);
 }

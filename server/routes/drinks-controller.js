@@ -7,10 +7,10 @@ function drinkWithFav(drink, { favDrinks }) {
 }
 
 async function getDrinks(req, res) {
-  const { ingredient } = req.query;
+  const { q: searchTerm } = req.query;
   let dbResult;
-  if (ingredient) {
-    dbResult = await Drink.searchIngredient(ingredient);
+  if (searchTerm) {
+    dbResult = await Drink.searchNameOrIngredient(searchTerm);
   } else {
     dbResult = await Drink.find({ popular: true });
   }

@@ -19,6 +19,13 @@ drinkSchema.statics.searchIngredient = function (ingredientName) {
   });
 };
 
+drinkSchema.statics.searchNameOrIngredient = function (searchTerm) {
+  const term = new RegExp(searchTerm.trim(), "i");
+  return this.find({
+    $or: [{ name: term }, { "ingredients.name": term }],
+  });
+};
+
 const Drink = mongoose.model("Drink", drinkSchema);
 
 module.exports = Drink;
