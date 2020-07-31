@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const sidebarVariant = {
@@ -36,13 +36,18 @@ export default function SideNav({ isOpen, close }) {
             animate="open"
             exit="closed"
             variants={sidebarVariant}
-            className="relative z-10 w-4/5 h-screen p-6 pt-10 origin-left bg-indigo"
+            className="relative z-10 w-4/5 h-screen p-6 pt-8 origin-left bg-indigo"
           >
             <motion.nav
               key="sidebar"
               variants={navVariant}
               className="text-gray-500"
             >
+              <Link to="/" onClick={close}>
+                <h2 className="mb-6 text-2xl text-gray-100 font-display">
+                  Minibar
+                </h2>
+              </Link>
               <ul className="space-y-6">
                 <li>
                   <NavLink
