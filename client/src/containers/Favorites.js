@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+
+import { useQuery } from "react-query";
 
 import { getFavoriteDrinks } from "./../utils/api-client";
 import CompactList from "../components/CompactList";
 
 export default function Favorites() {
-  const [drinks, setDrinks] = useState([]);
+  const { isLoading, error, data: drinks } = useQuery(
+    "favorites",
+    getFavoriteDrinks
+  );
 
-  useEffect(() => {
-    getFavoriteDrinks().then((drinks) => setDrinks(drinks));
-  }, []);
+  if (isLoading) return "Loading...";
 
-  if (!drinks.length) return "Loading...";
+  if (error) return "An error has occurred " + error.message;
 
   return (
     <>
