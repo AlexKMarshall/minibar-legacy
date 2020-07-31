@@ -1,38 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
+import { useQuery } from "react-query";
 
 import { searchDrinks } from "../utils/api-client";
 import CompactList from "../components/CompactList";
 
-function useSearchDrinksByIngredient() {
-  const [drinks, setDrinks] = useState([]);
-  const { search } = useLocation();
-  const [searchTerm, setSearchTerm] = useState("");
-
-  useEffect(() => {
-    const query = new URLSearchParams(search);
-    const term = query.get("ingredient");
-    setSearchTerm(term);
-    searchDrinks(term).then((results) => setDrinks(results));
-  }, [search]);
-
-  return {
-    drinks,
-    searchTerm,
-  };
+function useSearchTerm() {
+  const query = new URLSearchParams(useLocation().search);
+  const searchTerm = query.get("ingredient");
+  return { searchTerm };
 }
 
 export default function Discover() {
-  const { drinks, searchTerm } = useSearchDrinksByIngredient();
+  const { searchTerm } = useSearchTerm();
 
-  if (!drinks.length) return "Loading...";
+  const { isLoading, error, data: drinks } = useQuery(
+    ["search", searchTerm],
+    searchDrinks
+  );
+
+  if (isLoading) return "Loading...";
+  if (error) return "An error ocurred " + error;
 
   return (
     <>
       <h2 className="mb-4 text-xl font-display">
         Search results for {searchTerm}
       </h2>
-      <CompactList drinks={drinks} />
+      {drinks.length ? <CompactList drinks={drinks} /> : "No results found"}
     </>
   );
 }

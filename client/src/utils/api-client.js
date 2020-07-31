@@ -12,7 +12,7 @@ export function getFavoriteDrinks() {
     .then((data) => data.drinks);
 }
 
-export function searchDrinks(searchTerm) {
+export function searchDrinks(_key, searchTerm) {
   return fetch(`${API_URL}/drinks?q=${searchTerm}`)
     .then((res) => res.json())
     .then((data) => data.drinks);

@@ -12,6 +12,7 @@ export default function Recipe() {
     ["drink", id],
     getSingleDrink
   );
+
   const [mutate] = useMutation(updateFav, {
     onSuccess: (data) => {
       queryCache.setQueryData(["drink", id], data);
