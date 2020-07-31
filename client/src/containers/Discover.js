@@ -4,26 +4,29 @@ import { Link } from "react-router-dom";
 import { getDrinks, getFavoriteDrinks } from "./../utils/api-client";
 
 import CompactList from "../components/CompactList";
+import { useQuery } from "react-query";
 
 export default function Discover() {
-  const [drinks, setDrinks] = useState([]);
-  const [secondaryDrinks, setSecondaryDrinks] = useState([]);
+  const {
+    isLoading: isFeaturedLoading,
+    error: featuredError,
+    data: featuredDrinks,
+  } = useQuery("featured", getDrinks);
 
-  useEffect(() => {
-    getDrinks().then((drinks) => setDrinks(drinks));
-  }, []);
+  const {
+    isLoading: isSecondaryLoading,
+    error: secondaryError,
+    data: secondaryDrinks,
+  } = useQuery("favorites", getFavoriteDrinks);
 
-  useEffect(() => {
-    getFavoriteDrinks().then((favDrinks) => setSecondaryDrinks(favDrinks));
-  }, []);
-
-  if (!drinks.length) return "Loading...";
+  if (isFeaturedLoading) return "Loading...";
+  if (featuredError) return "An error ocurred " + featuredError;
 
   return (
     <>
       <h2 className="mb-4 text-2xl font-display">Featured drinks</h2>
       <ul className="flex px-6 -mx-6 overflow-x-auto">
-        {drinks.map((drink) => (
+        {featuredDrinks.map((drink) => (
           <li key={drink._id}>
             <div className="mr-4" style={{ width: "50vw" }}>
               <div className="relative overflow-hidden rounded-lg pb-5/6">
@@ -53,7 +56,9 @@ export default function Discover() {
           Random
         </div>
       </nav>
-      <CompactList drinks={secondaryDrinks} />
+      {isSecondaryLoading && "Loading..."}
+      {secondaryError && "An error ocurred " + secondaryError}
+      {secondaryDrinks && <CompactList drinks={secondaryDrinks} />}
     </>
   );
 }
