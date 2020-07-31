@@ -1,9 +1,10 @@
 {
   "scripts": {
-    "install": "cd ./client && yarn install && cd ../server && yarn install",
+    "install": "yarn install && cd ./client && yarn install && cd ../server && yarn install",
+    "init:db": "yarn run import:users && yarn run import:drinks",
     "import:users": "mongoimport --db=minibarBU --file=./sample-data/users.json --drop",
     "import:drinks": "mongoimport --db=minibarBU --file=./sample-data/drinks.json --drop",
-    "start": "start:server-client",
+    "start": "yarn start:server-client",
     "start:client": "cd ./client && BROWSER=none yarn start && cd ..",
     "start:server": "node ./server",
     "start:server-client": "start-test start:server 3001/api/drinks start:client",
