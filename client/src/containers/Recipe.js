@@ -42,7 +42,7 @@ export default function Recipe() {
         />
       </div>
 
-      <button onClick={() => history.goBack()}>
+      <button onClick={() => history.goBack()} aria-label="back">
         <div className="fixed top-0 flex items-center justify-center w-12 h-12 mt-10 ml-6 text-gray-800 bg-gray-200 rounded-full">
           <svg fill="currentColor" viewBox="0 0 20 20" className="w-6 h-6">
             <path
