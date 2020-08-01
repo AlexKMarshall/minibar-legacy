@@ -11,7 +11,7 @@ import Layout from "./components/Layout";
 
 function App() {
   return (
-    <>
+    <div className="max-w-screen-sm mx-auto">
       <Router>
         <Switch>
           <Route path="/recipe/:id">
@@ -35,7 +35,7 @@ function App() {
         </Switch>
       </Router>
       {/* <ReactQueryDevtools /> */}
-    </>
+    </div>
   );
 }
 

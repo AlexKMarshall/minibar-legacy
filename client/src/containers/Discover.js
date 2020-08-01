@@ -27,8 +27,8 @@ export default function Discover() {
       <h2 className="mb-4 text-2xl font-display">Featured drinks</h2>
       <ul className="flex px-6 -mx-6 overflow-x-auto">
         {featuredDrinks.map((drink) => (
-          <li key={drink._id}>
-            <div className="mr-4" style={{ width: "50vw" }}>
+          <li key={drink._id} className="flex-shrink-0 w-3/4 mr-4">
+            <Link to={`/recipe/${drink._id}`}>
               <div className="relative overflow-hidden rounded-lg pb-5/6">
                 <img
                   src={drink.image}
@@ -36,12 +36,10 @@ export default function Discover() {
                   className="absolute object-cover w-full h-full"
                 />
               </div>
-              <Link to={`/recipe/${drink._id}`}>
-                <h3 className="py-4 text-lg font-semibold font-display">
-                  {drink.name}
-                </h3>
-              </Link>
-            </div>
+              <h3 className="py-4 text-lg font-semibold font-display">
+                {drink.name}
+              </h3>
+            </Link>
           </li>
         ))}
       </ul>
