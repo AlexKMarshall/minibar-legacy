@@ -51,5 +51,9 @@ export function removeFromFav(drinkId) {
 export function getIngredients() {
   return fetch(`${API_URL}/ingredients`)
     .then((res) => res.json())
-    .then((data) => data.ingredients);
+    .then((data) =>
+      data.ingredients.sort((a, b) => {
+        return a.name < b.name ? -1 : 1;
+      })
+    );
 }
