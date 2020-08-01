@@ -7,7 +7,6 @@ import Discover from "./pages/Discover";
 import Recipe from "./pages/Recipe";
 import SearchResult from "./pages/SearchResult";
 import Favorites from "./pages/Favorites";
-import Layout from "./components/Layout";
 
 function App() {
   return (
