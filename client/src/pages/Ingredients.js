@@ -18,6 +18,8 @@ export default function Ingredients() {
       return ingredient.alcohol === true;
     } else if (type === "non-alcohol") {
       return ingredient.alcohol === false;
+    } else if (type === "saved") {
+      return ingredient.isSaved === true;
     } else {
       return true;
     }
@@ -32,6 +34,7 @@ export default function Ingredients() {
       <div className="flex justify-around mb-4">
         <button onClick={() => setType("alcohol")}>Alchol</button>
         <button onClick={() => setType("non-alcohol")}>Non-Alcohol</button>
+        <button onClick={() => setType("saved")}>Saved</button>
       </div>
       <ul className="space-y-3">
         {ingredients.filter(predicate).map((ingredient) => (
