@@ -41,15 +41,40 @@ async function addSaved(req, res) {
     .json({ ingredient: ingredientWithSaved(ingredient, user) });
 }
 
+async function removeSaved(req, res) {
+  const { ingredientId } = req.params;
+  const ingredient = await Ingredient.findById(ingredientId);
+  if (!ingredient) {
+    return res
+      .status(404)
+      .json({ message: `No ingredient with id ${ingredientId}` });
+  }
+
+  const { user } = req;
+  user.savedIngredients = updateSavedList(
+    user.savedIngredients,
+    ingredientId,
+    "remove"
+  );
+  await user.save();
+  console.log(user.toObject());
+  return res
+    .status(200)
+    .json({ ingredient: ingredientWithSaved(ingredient, user) });
+}
+
 function updateSavedList(oldSavedList, ingredientId, action) {
   if (action === "add") {
     return oldSavedList.includes(ingredientId)
       ? oldSavedList
       : [...oldSavedList, ingredientId];
+  } else if (action === "remove") {
+    return oldSavedList.filter((id) => id !== ingredientId);
   }
 }
 
 module.exports = {
   getIngredients,
   addSaved,
+  removeSaved,
 };

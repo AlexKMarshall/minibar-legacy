@@ -15,5 +15,9 @@ router.post(
   "/ingredients/:ingredientId/add_saved",
   ingredientsController.addSaved
 );
+router.post(
+  "/ingredients/:ingredientId/remove_saved",
+  ingredientsController.removeSaved
+);
 
 module.exports = router;
