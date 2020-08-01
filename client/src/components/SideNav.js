@@ -3,6 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { ReactComponent as HamburgerIcon } from "./../assets/hamburger-icon.svg";
+import { ReactComponent as HomeIcon } from "./../assets/home-icon.svg";
+import { ReactComponent as HeartOutlineIcon } from "./../assets/heart-outline-icon.svg";
 
 const sidebarVariant = {
   open: {
@@ -79,17 +81,7 @@ function Menu({ close }) {
               >
                 <div className="flex items-center">
                   <div className="mr-3">
-                    <svg
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      className="w-4 h-4"
-                    >
-                      <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                    </svg>
+                    <HomeIcon className="w-4 h-4" />
                   </div>
                   <div>Home</div>
                 </div>
@@ -104,17 +96,7 @@ function Menu({ close }) {
               >
                 <div className="flex items-center">
                   <div className="mr-3">
-                    <svg
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      className="w-4 h-4"
-                      stroke="currentColor"
-                    >
-                      <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                    </svg>
+                    <HeartOutlineIcon className="w-4 h-4" />
                   </div>
                   <div>Favorites</div>
                 </div>
