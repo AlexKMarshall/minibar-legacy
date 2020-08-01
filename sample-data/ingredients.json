@@ -1,0 +1,99 @@
+{"_id":{"$oid":"5f2578a2163b9459c9566e84"},"externalId":"305","name":"Light Rum","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a2163b9459c9566e85"},"externalId":"31","name":"Applejack","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a2163b9459c9566e86"},"externalId":"2","name":"Gin","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a2163b9459c9566e87"},"externalId":"179","name":"Dark Rum","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a2163b9459c9566e88"},"externalId":"482","name":"Sweet Vermouth","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a2163b9459c9566e89"},"externalId":"473","name":"Strawberry Schnapps","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a2163b9459c9566e8a"},"externalId":"5","name":"Scotch","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a2163b9459c9566e8b"},"externalId":"32","name":"Apricot Brandy","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a2163b9459c9566e8c"},"externalId":"498","name":"Triple Sec","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a2163b9459c9566e8d"},"externalId":"458","name":"Southern Comfort","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a2163b9459c9566e8e"},"externalId":"350","name":"Orange Bitters","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a2163b9459c9566e8f"},"externalId":"74","name":"Brandy","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a2163b9459c9566e90"},"externalId":"296","name":"Lemon vodka","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a3163b9459c9566e91"},"externalId":"66","name":"Blended Whiskey","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a3163b9459c9566e92"},"externalId":"189","name":"Dry Vermouth","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a3163b9459c9566e93"},"externalId":"18","name":"Amaretto","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a3163b9459c9566e94"},"externalId":"486","name":"Tea","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a3163b9459c9566e95"},"externalId":"97","name":"Champagne","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a3163b9459c9566e96"},"externalId":"138","name":"Coffee Liqueur","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a3163b9459c9566e97"},"externalId":"71","name":"Bourbon","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a3163b9459c9566e98"},"externalId":"4","name":"Tequila","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a3163b9459c9566e99"},"externalId":"1","name":"Vodka","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a3163b9459c9566e9a"},"externalId":"56","name":"Bitters","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a3163b9459c9566e9b"},"externalId":"476","name":"Sugar","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a3163b9459c9566e9c"},"externalId":"282","name":"Kahlua","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a3163b9459c9566e9d"},"externalId":"181","name":"Demerara Sugar","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a4163b9459c9566e9e"},"externalId":"191","name":"Dubonnet Rouge","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a4163b9459c9566e9f"},"externalId":"308","name":"Lime Juice","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a4163b9459c9566ea0"},"externalId":"273","name":"Irish Whiskey","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a4163b9459c9566ea1"},"externalId":"26","name":"Apple Brandy","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a4163b9459c9566ea2"},"externalId":"89","name":"Carbonated Water","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a4163b9459c9566ea3"},"externalId":"100","name":"Cherry Brandy","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a4163b9459c9566ea4"},"externalId":"164","name":"Creme De Cacao","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a4163b9459c9566ea5"},"externalId":"250","name":"Grenadine","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a4163b9459c9566ea6"},"externalId":"406","name":"Port","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a4163b9459c9566ea7"},"externalId":"137","name":"Coffee Brandy","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a4163b9459c9566ea8"},"externalId":"425","name":"Red Wine","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a4163b9459c9566ea9"},"externalId":"3","name":"Rum","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a4163b9459c9566eaa"},"externalId":"242","name":"Grapefruit Juice","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a4163b9459c9566eab"},"externalId":"427","name":"Ricard","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a4163b9459c9566eac"},"externalId":"449","name":"Sherry","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a5163b9459c9566ead"},"externalId":"141","name":"Cognac","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a5163b9459c9566eae"},"externalId":"453","name":"Sloe Gin","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a5163b9459c9566eaf"},"externalId":"28","name":"Apple Juice","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a5163b9459c9566eb0"},"externalId":"393","name":"Pineapple Juice","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a5163b9459c9566eb1"},"externalId":"293","name":"Lemon Juice","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a5163b9459c9566eb2"},"externalId":"475","name":"Sugar Syrup","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a5163b9459c9566eb3"},"externalId":"333","name":"Milk","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a5163b9459c9566eb4"},"externalId":"470","name":"Strawberries","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a5163b9459c9566eb5"},"externalId":"115","name":"Chocolate Syrup","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a5163b9459c9566eb6"},"externalId":"533","name":"Yoghurt","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a5163b9459c9566eb7"},"externalId":"319","name":"Mango","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a5163b9459c9566eb8"},"externalId":"230","name":"Ginger","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a5163b9459c9566eb9"},"externalId":"312","name":"Lime","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a5163b9459c9566eba"},"externalId":"86","name":"Cantaloupe","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a6163b9459c9566ebb"},"externalId":"54","name":"Berries","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a6163b9459c9566ebc"},"externalId":"243","name":"Grapes","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a6163b9459c9566ebd"},"externalId":"286","name":"Kiwi","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a6163b9459c9566ebe"},"externalId":"492","name":"Tomato Juice","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a6163b9459c9566ebf"},"externalId":"131","name":"Cocoa Powder","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a6163b9459c9566ec0"},"externalId":"116","name":"Chocolate","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a6163b9459c9566ec1"},"externalId":"259","name":"Heavy cream","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a6163b9459c9566ec2"},"externalId":"223","name":"Galliano","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a6163b9459c9566ec3"},"externalId":"380","name":"Peach Vodka","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a6163b9459c9566ec4"},"externalId":"363","name":"Ouzo","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a6163b9459c9566ec5"},"externalId":"139","name":"Coffee","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a6163b9459c9566ec6"},"externalId":"464","name":"Spiced Rum","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a6163b9459c9566ec7"},"externalId":"513","name":"Water","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a6163b9459c9566ec8"},"externalId":"200","name":"Espresso","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a6163b9459c9566ec9"},"externalId":"19","name":"Angelica Root","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a6163b9459c9566eca"},"externalId":"359","name":"Orange","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a7163b9459c9566ecb"},"externalId":"154","name":"Cranberries","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a7163b9459c9566ecc"},"externalId":"280","name":"Johnnie Walker","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a7163b9459c9566ecd"},"externalId":"27","name":"Apple Cider","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a7163b9459c9566ece"},"externalId":"201","name":"Everclear","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a7163b9459c9566ecf"},"externalId":"155","name":"Cranberry Juice","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a7163b9459c9566ed0"},"externalId":"193","name":"Egg Yolk","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a7163b9459c9566ed1"},"externalId":"194","name":"Egg","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a7163b9459c9566ed2"},"externalId":"240","name":"Grape juice","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a7163b9459c9566ed3"},"externalId":"378","name":"Peach Nectar","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a7163b9459c9566ed4"},"externalId":"299","name":"lemon","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a7163b9459c9566ed5"},"externalId":"207","name":"Firewater","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a7163b9459c9566ed6"},"externalId":"300","name":"Lemonade","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a7163b9459c9566ed7"},"externalId":"289","name":"Lager","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a7163b9459c9566ed8"},"externalId":"600","name":"Whiskey","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a7163b9459c9566ed9"},"externalId":"574","name":"Absolut citron","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a8163b9459c9566eda"},"externalId":"400","name":"Pisco","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a8163b9459c9566edb"},"externalId":"272","name":"Irish cream","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a8163b9459c9566edc"},"externalId":"13","name":"Ale","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a8163b9459c9566edd"},"externalId":"113","name":"Chocolate Liqueur","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a8163b9459c9566ede"},"externalId":"331","name":"Midori Melon Liqueur","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a8163b9459c9566edf"},"externalId":"440","name":"Sambuca","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a9163b9459c9566ee0"},"externalId":"120","name":"Cider","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a9163b9459c9566ee1"},"externalId":"466","name":"Sprite","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a9163b9459c9566ee2"},"externalId":"572","name":"7-up","alcohol":false,"__v":0}
+{"_id":{"$oid":"5f2578a9163b9459c9566ee3"},"externalId":"61","name":"Blackberry Brandy","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a9163b9459c9566ee4"},"externalId":"388","name":"Peppermint Schnapps","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a9163b9459c9566ee5"},"externalId":"165","name":"Creme De Cassis","alcohol":true,"__v":0}
+{"_id":{"$oid":"5f2578a9163b9459c9566ee6"},"externalId":"275","name":"Jack Daniels","alcohol":true,"__v":0}

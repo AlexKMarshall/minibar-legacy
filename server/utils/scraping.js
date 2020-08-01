@@ -1,6 +1,7 @@
 require("dotenv").config();
 const fetch = require("node-fetch");
 const Drink = require("./../models/drink");
+const Ingredient = require("./../models/ingredient");
 
 const API_KEY = process.env.COCKTAIL_DB_KEY || 1;
 
@@ -45,7 +46,7 @@ const aToZ = [
   "0",
 ];
 
-async function fetchAllIngredients() {
+async function populateAllIngredients() {
   const ingredientNames = await fetch(
     `https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list`
   )
@@ -63,19 +64,20 @@ async function fetchAllIngredients() {
       .then((res) => res.json())
       .then(({ ingredients }) => {
         if (Array.isArray(ingredients)) {
-          const [ingredient] = ingredients;
-          const {
-            idIngredient: externalId,
-            strIngredient: name,
-            strAlcohol: alcohol,
-          } = ingredient;
-          return { externalId, name, alcohol };
+          const [cocktailDbIngredient] = ingredients;
+          return ingredientTransform(cocktailDbIngredient);
         }
 
         return null;
       });
 
     console.log(ingredient);
+
+    if (ingredient !== null) {
+      const mongoIngredient = new Ingredient(ingredient);
+      await mongoIngredient.save();
+      console.log("saved");
+    }
   }
 }
 
@@ -95,6 +97,21 @@ function fetchPopular() {
   )
     .then((res) => res.json())
     .then(({ drinks }) => drinks);
+}
+
+function ingredientTransform(cocktailDbIngredient) {
+  if (cocktailDbIngredient === null) return null;
+  const {
+    idIngredient: externalId,
+    strIngredient: name,
+    strAlcohol: alcohol,
+  } = cocktailDbIngredient;
+
+  return {
+    externalId,
+    name,
+    alcohol: alcohol === "Yes" ? true : false,
+  };
 }
 
 function drinkItemTransform(cocktailDbDrink) {
@@ -154,6 +171,6 @@ async function populatePopular() {
 
 //populatePopular();
 
-fetchAllIngredients();
+populateAllIngredients();
 
 module.exports = { drinkItemTransform };
