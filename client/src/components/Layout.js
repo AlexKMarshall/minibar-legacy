@@ -14,7 +14,7 @@ export default function Layout({ children }) {
   return (
     <>
       <LayoutHeader onSearchSubmit={onSearchSubmit} />
-      <main className="min-h-screen px-6 bg-gray-300">{children}</main>
+      <main className="min-h-screen p-6 pt-0 bg-gray-300">{children}</main>
     </>
   );
 }
