@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Discover from "./pages/Discover";
 import Recipe from "./containers/Recipe";
-import SearchResult from "./containers/SearchResult";
+import SearchResult from "./pages/SearchResult";
 import Favorites from "./pages/Favorites";
 import Layout from "./components/Layout";
 
@@ -18,9 +18,7 @@ function App() {
             <Recipe />
           </Route>
           <Route path="/search">
-            <Layout>
-              <SearchResult />
-            </Layout>
+            <SearchResult />
           </Route>
           <Route path="/favorites">
             <Favorites />
