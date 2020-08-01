@@ -75,7 +75,7 @@ export default function Recipe() {
           ))}
         </ol>
       </div>
-      <footer className="flex justify-center m-6">
+      <footer className="flex justify-center p-6">
         <button
           className={`py-2 px-3 rounded bg-gray-700 text-gray-100 text-sm`}
           onClick={toggleFave}
