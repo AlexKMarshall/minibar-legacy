@@ -11,5 +11,9 @@ router.post("/drinks/:drinkId/add_fav", drinksController.addFavorite);
 router.post("/drinks/:drinkId/remove_fav", drinksController.removeFavorite);
 
 router.get("/ingredients", ingredientsController.getIngredients);
+router.post(
+  "/ingredients/:ingredientId/add_saved",
+  ingredientsController.addSaved
+);
 
 module.exports = router;
