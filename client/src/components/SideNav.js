@@ -73,34 +73,20 @@ function Menu({ close }) {
           </Link>
           <ul className="space-y-6">
             <li>
-              <NavLink
+              <MenuLink
                 to="/"
-                exact
                 onClick={close}
-                activeClassName="text-gray-100"
-              >
-                <div className="flex items-center">
-                  <div className="mr-3">
-                    <HomeIcon className="w-4 h-4" />
-                  </div>
-                  <div>Home</div>
-                </div>
-              </NavLink>
+                icon={<HomeIcon className="w-4 h-4" />}
+                label="Home"
+              />
             </li>
             <li>
-              <NavLink
+              <MenuLink
                 to="/favorites"
-                exact
                 onClick={close}
-                activeClassName="text-gray-100"
-              >
-                <div className="flex items-center">
-                  <div className="mr-3">
-                    <HeartOutlineIcon className="w-4 h-4" />
-                  </div>
-                  <div>Favorites</div>
-                </div>
-              </NavLink>
+                icon={<HeartOutlineIcon className="w-4 h-4" />}
+                label="Favorites"
+              />
             </li>
           </ul>
         </motion.nav>
@@ -114,5 +100,16 @@ function Menu({ close }) {
         onClick={close}
       ></motion.div>
     </div>
+  );
+}
+
+function MenuLink({ to, onClick, icon, label }) {
+  return (
+    <NavLink to={to} exact onClick={onClick} activeClassName="text-gray-100">
+      <div className="flex items-center">
+        <div className="mr-3">{icon}</div>
+        <div>{label}</div>
+      </div>
+    </NavLink>
   );
 }
