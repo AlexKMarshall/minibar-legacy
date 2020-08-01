@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // import { ReactQueryDevtools } from "react-query-devtools";
 
-import Discover from "./containers/Discover";
+import Discover from "./pages/Discover";
 import Recipe from "./containers/Recipe";
 import SearchResult from "./containers/SearchResult";
 import Favorites from "./pages/Favorites";
@@ -26,9 +26,7 @@ function App() {
             <Favorites />
           </Route>
           <Route path="/">
-            <Layout>
-              <Discover />
-            </Layout>
+            <Discover />
           </Route>
         </Switch>
       </Router>
