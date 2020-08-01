@@ -11,7 +11,7 @@ import Layout from "./components/Layout";
 
 function App() {
   return (
-    <div className="max-w-screen-sm mx-auto">
+    <div className="max-w-screen-sm min-h-screen mx-auto bg-gray-300">
       <Router>
         <Switch>
           <Route path="/recipe/:id">
