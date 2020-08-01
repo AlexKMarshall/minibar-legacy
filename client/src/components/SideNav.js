@@ -30,7 +30,7 @@ export default function SideNav({ isOpen, close }) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="absolute z-10 w-full h-full overflow-hidden">
+        <div className="absolute top-0 left-0 z-10 w-full h-full overflow-hidden">
           <motion.div
             initial="closed"
             animate="open"

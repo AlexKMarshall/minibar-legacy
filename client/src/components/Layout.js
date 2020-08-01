@@ -18,16 +18,21 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <SideNav isOpen={isNavOpen} close={() => setIsNavOpen(false)} />
-      <LayoutHeader toggleNav={toggleNav} onSearchSubmit={onSearchSubmit} />
+      <LayoutHeader
+        toggleNav={toggleNav}
+        onSearchSubmit={onSearchSubmit}
+        isNavOpen={isNavOpen}
+        setIsNavOpen={setIsNavOpen}
+      />
       <main className="min-h-screen px-6 bg-gray-300">{children}</main>
     </>
   );
 }
 
-function LayoutHeader({ toggleNav, onSearchSubmit }) {
+function LayoutHeader({ isNavOpen, setIsNavOpen, toggleNav, onSearchSubmit }) {
   return (
     <header className="p-6 pt-10">
+      <SideNav isOpen={isNavOpen} close={() => setIsNavOpen(false)} />
       <div className="flex justify-between mb-6">
         <button onClick={toggleNav}>
           <img
