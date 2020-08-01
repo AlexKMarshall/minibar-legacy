@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import { ReactQueryDevtools } from "react-query-devtools";
 
 import Discover from "./pages/Discover";
-import Recipe from "./containers/Recipe";
+import Recipe from "./pages/Recipe";
 import SearchResult from "./pages/SearchResult";
 import Favorites from "./pages/Favorites";
 import Layout from "./components/Layout";

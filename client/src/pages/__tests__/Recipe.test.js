@@ -10,7 +10,7 @@ import { MemoryRouter, Route } from "react-router-dom";
 import {
   getSingleDrink as mockGetSingleDrink,
   updateFav as mockUpdateFav,
-} from "./../../utils/api-client";
+} from "../../utils/api-client";
 import Recipe from "../Recipe";
 
 jest.mock("./../../utils/api-client");
