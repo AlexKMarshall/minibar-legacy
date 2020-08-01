@@ -22,7 +22,7 @@
     "prebuild": "NODE_ENV=production run-s build:tailwind",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:coverage": "yarn test --coverage --watchAll=false",
+    "test:coverage": "npm test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint ./src"
   },
