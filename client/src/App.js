@@ -3,34 +3,27 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // import { ReactQueryDevtools } from "react-query-devtools";
 
-import Discover from "./containers/Discover";
-import Recipe from "./containers/Recipe";
-import SearchResult from "./containers/SearchResult";
-import Favorites from "./containers/Favorites";
-import Layout from "./components/Layout";
+import Discover from "./pages/Discover";
+import Recipe from "./pages/Recipe";
+import SearchResult from "./pages/SearchResult";
+import Favorites from "./pages/Favorites";
 
 function App() {
   return (
-    <div className="max-w-screen-sm min-h-screen mx-auto bg-gray-300">
+    <div className="relative max-w-screen-sm min-h-screen mx-auto bg-gray-300">
       <Router>
         <Switch>
           <Route path="/recipe/:id">
             <Recipe />
           </Route>
           <Route path="/search">
-            <Layout>
-              <SearchResult />
-            </Layout>
+            <SearchResult />
           </Route>
           <Route path="/favorites">
-            <Layout>
-              <Favorites />
-            </Layout>
+            <Favorites />
           </Route>
           <Route path="/">
-            <Layout>
-              <Discover />
-            </Layout>
+            <Discover />
           </Route>
         </Switch>
       </Router>

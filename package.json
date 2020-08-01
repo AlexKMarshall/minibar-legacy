@@ -1,16 +1,16 @@
 {
   "scripts": {
-    "install": "cd ./client && npm install && cd ../server && npm install",
-    "init:db": "npm run import:users && npm run import:drinks",
+    "install": "cd ./client && yarn install && cd ../server && yarn install",
+    "init:db": "yarn run import:users && yarn run import:drinks",
     "import:users": "mongoimport --db=minibar --file=./sample-data/users.json --drop",
     "import:drinks": "mongoimport --db=minibar --file=./sample-data/drinks.json --drop",
-    "start": "npm run start:server-client",
-    "start:client": "cd ./client && BROWSER=none npm start && cd ..",
+    "start": "yarn run start:server-client",
+    "start:client": "cd ./client && BROWSER=none yarn start && cd ..",
     "start:server": "node ./server",
     "start:server-client": "start-test start:server 3001/api/drinks start:client",
-    "build": "cd ./client && npm build",
-    "test": "cd ./client && npm run test:coverage",
-    "lint": "cd ./client && npm run lint"
+    "build": "cd ./client && yarn build",
+    "test": "cd ./client && yarn run test:coverage",
+    "lint": "cd ./client && yarn run lint"
   },
   "devDependencies": {
     "@types/jest": "^26.0.7",

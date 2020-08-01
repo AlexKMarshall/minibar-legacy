@@ -1,29 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { getDrinks, getFavoriteDrinks } from "./../utils/api-client";
+import { getDrinks } from "../utils/api-client";
 
-import CompactList from "../components/CompactList";
 import { useQuery } from "react-query";
+import Favorites from "../components/Favorites";
+import Layout from "../components/Layout";
 
 export default function Discover() {
-  const {
-    isLoading: isFeaturedLoading,
-    error: featuredError,
-    data: featuredDrinks,
-  } = useQuery("featured", getDrinks);
+  const { isLoading, error, data: featuredDrinks } = useQuery(
+    "featured",
+    getDrinks
+  );
 
-  const {
-    isLoading: isSecondaryLoading,
-    error: secondaryError,
-    data: secondaryDrinks,
-  } = useQuery("favorites", getFavoriteDrinks);
-
-  if (isFeaturedLoading) return "Loading...";
-  if (featuredError) return "An error ocurred " + featuredError;
+  if (isLoading) return "Loading...";
+  if (error) return "An error ocurred " + error;
 
   return (
-    <>
+    <Layout>
       <h2 className="mb-4 text-2xl font-display">Featured drinks</h2>
       <ul className="flex px-6 -mx-6 overflow-x-auto">
         {featuredDrinks.map((drink) => (
@@ -56,9 +50,7 @@ export default function Discover() {
           Random
         </div>
       </nav>
-      {isSecondaryLoading && "Loading..."}
-      {secondaryError && "An error ocurred " + secondaryError}
-      {secondaryDrinks && <CompactList drinks={secondaryDrinks} />}
-    </>
+      <Favorites />
+    </Layout>
   );
 }
