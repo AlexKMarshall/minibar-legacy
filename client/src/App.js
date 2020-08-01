@@ -7,6 +7,7 @@ import Discover from "./pages/Discover";
 import Recipe from "./pages/Recipe";
 import SearchResult from "./pages/SearchResult";
 import Favorites from "./pages/Favorites";
+import Ingredients from "./pages/Ingredients";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/favorites">
             <Favorites />
+          </Route>
+          <Route path="/ingredients">
+            <Ingredients />
           </Route>
           <Route path="/">
             <Discover />

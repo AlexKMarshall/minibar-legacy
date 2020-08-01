@@ -47,3 +47,9 @@ export function removeFromFav(drinkId) {
     .then((res) => res.json())
     .then((data) => data.drink);
 }
+
+export function getIngredients() {
+  return fetch(`${API_URL}/ingredients`)
+    .then((res) => res.json())
+    .then((data) => data.ingredients);
+}

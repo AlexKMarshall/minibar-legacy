@@ -88,6 +88,14 @@ function Menu({ close }) {
                 label="Favorites"
               />
             </li>
+            <li>
+              <MenuLink
+                to="/ingredients"
+                onClick={close}
+                icon={<HeartOutlineIcon className="w-4 h-4" />}
+                label="Ingredients"
+              />
+            </li>
           </ul>
         </motion.nav>
       </motion.div>
