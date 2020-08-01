@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { ReactComponent as HamburgerIcon } from "./../assets/hamburger-icon.svg";
+
 const sidebarVariant = {
   open: {
     scaleX: 1,
@@ -39,11 +41,9 @@ export default function SideNav() {
         {isNavOpen ? <Menu close={() => setIsNavOpen(false)} /> : null}
       </AnimatePresence>
       <button onClick={toggleNav}>
-        <img
-          src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.5&w=144&q=80"
-          alt=""
-          className="w-12 h-12 rounded-full"
-        />
+        <div className="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full">
+          <HamburgerIcon className="w-6 h-6" />
+        </div>
       </button>
     </>
   );
