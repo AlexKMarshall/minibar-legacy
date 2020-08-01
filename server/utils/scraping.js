@@ -45,6 +45,40 @@ const aToZ = [
   "0",
 ];
 
+async function fetchAllIngredients() {
+  const ingredientNames = await fetch(
+    `https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list`
+  )
+    .then((res) => res.json())
+    .then(({ drinks: ingredientNames }) =>
+      ingredientNames.map(({ strIngredient1 }) => strIngredient1)
+    );
+
+  console.log(ingredientNames);
+
+  for (const name of ingredientNames) {
+    const ingredient = await fetch(
+      `https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${name}`
+    )
+      .then((res) => res.json())
+      .then(({ ingredients }) => {
+        if (Array.isArray(ingredients)) {
+          const [ingredient] = ingredients;
+          const {
+            idIngredient: externalId,
+            strIngredient: name,
+            strAlcohol: alcohol,
+          } = ingredient;
+          return { externalId, name, alcohol };
+        }
+
+        return null;
+      });
+
+    console.log(ingredient);
+  }
+}
+
 async function fetchAllCocktails() {
   const fetches = aToZ.map((letter) =>
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`)
@@ -104,7 +138,7 @@ async function populateDrinksDB() {
   console.log(savedDrinks);
 }
 
-fetchPopular();
+//fetchPopular();
 
 async function populatePopular() {
   const popularDrinks = await fetchPopular();
@@ -118,6 +152,8 @@ async function populatePopular() {
   }
 }
 
-populatePopular();
+//populatePopular();
+
+fetchAllIngredients();
 
 module.exports = { drinkItemTransform };
