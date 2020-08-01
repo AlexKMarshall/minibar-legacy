@@ -5,31 +5,27 @@ import SideNav from "../components/SideNav";
 import SearchControl from "../components/SearchControl";
 
 export default function Layout({ children }) {
-  const [isNavOpen, setIsNavOpen] = useState(false);
   const history = useHistory();
 
   function onSearchSubmit(searchTerm) {
     history.push(`/search?ingredient=${searchTerm}`);
   }
 
-  function toggleNav() {
-    setIsNavOpen((isNavExpanded) => !isNavExpanded);
-  }
-
   return (
     <>
-      <LayoutHeader
-        toggleNav={toggleNav}
-        onSearchSubmit={onSearchSubmit}
-        isNavOpen={isNavOpen}
-        setIsNavOpen={setIsNavOpen}
-      />
+      <LayoutHeader onSearchSubmit={onSearchSubmit} />
       <main className="min-h-screen px-6 bg-gray-300">{children}</main>
     </>
   );
 }
 
-function LayoutHeader({ isNavOpen, setIsNavOpen, toggleNav, onSearchSubmit }) {
+function LayoutHeader({ onSearchSubmit }) {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  function toggleNav() {
+    setIsNavOpen((isNavExpanded) => !isNavExpanded);
+  }
+
   return (
     <header className="p-6 pt-10">
       <SideNav isOpen={isNavOpen} close={() => setIsNavOpen(false)} />
