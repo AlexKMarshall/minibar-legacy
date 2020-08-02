@@ -56,7 +56,7 @@ export default function Ingredients() {
           <li key={ingredient._id} className="flex justify-between">
             {ingredient.name}
             <button onClick={() => toggleSaved(ingredient)}>
-              {ingredient.isSaved ? "+" : "-"}
+              {ingredient.isSaved ? "-" : "+"}
             </button>
           </li>
         ))}
