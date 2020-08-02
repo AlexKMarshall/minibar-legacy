@@ -35,7 +35,7 @@ async function addSaved(req, res) {
     "add"
   );
   await user.save();
-  console.log(user.toObject());
+
   return res
     .status(200)
     .json({ ingredient: ingredientWithSaved(ingredient, user) });
