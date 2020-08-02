@@ -17,7 +17,6 @@ async function getDrinks(req, res) {
 
   const { user } = req;
   const drinks = dbResult.map((dbDrink) => drinkWithFav(dbDrink, user));
-  console.log(user);
   const sortedDrinks = sortByIngredients(drinks, user);
   res.status(200).json({ drinks: sortedDrinks });
 }
