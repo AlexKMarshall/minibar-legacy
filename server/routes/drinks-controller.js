@@ -29,7 +29,8 @@ async function getFavoriteDrinks(req, res) {
 
   const dbDrinks = await Drink.find({ _id: { $in: user.favDrinks } });
   const drinks = dbDrinks.map((dbDrink) => drinkWithFav(dbDrink, user));
-  res.status(200).json({ drinks });
+  const sortedDrinks = sortByIngredients(drinks, user);
+  res.status(200).json({ drinks: sortedDrinks });
 }
 
 async function getSingleDrink(req, res) {
