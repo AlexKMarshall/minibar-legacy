@@ -3,10 +3,9 @@ const mongoose = require("./../db");
 const ingredientSchema = mongoose.Schema({
   externalId: {
     type: String,
-    required: true,
   },
   name: { type: String, required: true },
-  alcohol: { type: Boolean, required: true },
+  alcohol: { type: Boolean, default: true },
 });
 
 const Ingredient = mongoose.model("Ingredient", ingredientSchema);
