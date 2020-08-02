@@ -17,7 +17,9 @@ async function getDrinks(req, res) {
 
   const { user } = req;
   const drinks = dbResult.map((dbDrink) => drinkWithFav(dbDrink, user));
-  res.status(200).json({ drinks });
+  console.log(user);
+  const sortedDrinks = sortByIngredients(drinks, user);
+  res.status(200).json({ drinks: sortedDrinks });
 }
 
 async function getFavoriteDrinks(req, res) {
@@ -71,6 +73,23 @@ function addFav(oldFavs, drinkId) {
 
 function removeFav(oldFavs, drinkId) {
   return oldFavs.filter((id) => id !== drinkId);
+}
+
+function sortByIngredients(drinks, { savedIngredients }) {
+  const result = [];
+  for (const drink of drinks) {
+    const matchedIngredients = drink.ingredients
+      .map((ingredient) => ingredient.name)
+      .filter((name) => savedIngredients.includes(name));
+    const updatedDrink = { ...drink, matchedIngredients };
+    result.push(updatedDrink);
+  }
+  result.sort((a, b) => {
+    const aMatchedPercent = a.matchedIngredients.length / a.ingredients.length;
+    const bMatchedPercent = b.matchedIngredients.length / b.ingredients.length;
+    return aMatchedPercent > bMatchedPercent ? -1 : 1;
+  });
+  return result;
 }
 
 module.exports = {
