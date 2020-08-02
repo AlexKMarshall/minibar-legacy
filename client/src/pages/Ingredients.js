@@ -47,7 +47,7 @@ export default function Ingredients() {
     <Layout>
       <h2 className="mb-4 text-2xl font-display">Ingredients</h2>
       <div className="flex justify-around mb-4">
-        <button onClick={() => setType("alcohol")}>Alchol</button>
+        <button onClick={() => setType("alcohol")}>Alcohol</button>
         <button onClick={() => setType("non-alcohol")}>Non-Alcohol</button>
         <button onClick={() => setType("saved")}>Saved</button>
       </div>
