@@ -57,7 +57,6 @@ async function removeSaved(req, res) {
     "remove"
   );
   await user.save();
-  console.log(user.toObject());
   return res
     .status(200)
     .json({ ingredient: ingredientWithSaved(ingredient, user) });
