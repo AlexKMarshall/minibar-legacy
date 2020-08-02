@@ -5,7 +5,7 @@ function ingredientWithSaved(ingredient, { savedIngredients }) {
 
   return {
     ...ingredient.toObject(),
-    isSaved: savedIngredients.includes(ingredient._id),
+    isSaved: savedIngredients.includes(ingredient.name),
   };
 }
 
@@ -31,7 +31,7 @@ async function addSaved(req, res) {
   const { user } = req;
   user.savedIngredients = updateSavedList(
     user.savedIngredients,
-    ingredientId,
+    ingredient.name,
     "add"
   );
   await user.save();
@@ -53,7 +53,7 @@ async function removeSaved(req, res) {
   const { user } = req;
   user.savedIngredients = updateSavedList(
     user.savedIngredients,
-    ingredientId,
+    ingredient.name,
     "remove"
   );
   await user.save();
@@ -62,13 +62,13 @@ async function removeSaved(req, res) {
     .json({ ingredient: ingredientWithSaved(ingredient, user) });
 }
 
-function updateSavedList(oldSavedList, ingredientId, action) {
+function updateSavedList(oldSavedList, ingredientName, action) {
   if (action === "add") {
-    return oldSavedList.includes(ingredientId)
+    return oldSavedList.includes(ingredientName)
       ? oldSavedList
-      : [...oldSavedList, ingredientId];
+      : [...oldSavedList, ingredientName];
   } else if (action === "remove") {
-    return oldSavedList.filter((id) => id !== ingredientId);
+    return oldSavedList.filter((name) => name !== ingredientName);
   }
 }
 
