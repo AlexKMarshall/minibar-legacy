@@ -32,22 +32,6 @@ export function updateFav({ id, action }) {
     .then((data) => data.drink);
 }
 
-export function addToFav(drinkId) {
-  return fetch(`${API_URL}/drinks/${drinkId}/add_fav`, {
-    method: "POST",
-  })
-    .then((res) => res.json())
-    .then((data) => data.drink);
-}
-
-export function removeFromFav(drinkId) {
-  return fetch(`${API_URL}/drinks/${drinkId}/remove_fav`, {
-    method: "POST",
-  })
-    .then((res) => res.json())
-    .then((data) => data.drink);
-}
-
 export function getIngredients() {
   return fetch(`${API_URL}/ingredients`)
     .then((res) => res.json())
@@ -56,4 +40,12 @@ export function getIngredients() {
         return a.name < b.name ? -1 : 1;
       })
     );
+}
+
+export function updateSavedIngredient({ id, action }) {
+  return fetch(`${API_URL}/ingredients/${id}/${action}_saved`, {
+    method: "POST",
+  })
+    .then((res) => res.json())
+    .then((data) => data.ingredient);
 }
