@@ -1,9 +1,11 @@
 const API_URL = "http://localhost:3001/api";
+const REACT_APP_API_URL = API_URL;
 
 export function getDrinks() {
-  return fetch(`${API_URL}/drinks`)
-    .then((res) => res.json())
-    .then((data) => data.drinks);
+  return client(`drinks`).then((data) => data.drinks);
+  // return fetch(`${API_URL}/drinks`)
+  //   .then((res) => res.json())
+  //   .then((data) => data.drinks);
 }
 
 export function getFavoriteDrinks() {
@@ -54,4 +56,15 @@ export function updateSavedIngredient({ id, action }) {
   })
     .then((res) => res.json())
     .then((data) => data.ingredient);
+}
+
+export function client(endpoint, customConfig) {
+  const config = {
+    method: "GET",
+    ...customConfig,
+  };
+
+  return window
+    .fetch(`${REACT_APP_API_URL}/${endpoint}`, config)
+    .then((response) => response.json());
 }

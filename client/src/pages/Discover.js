@@ -43,18 +43,27 @@ export default function Discover() {
         ))}
       </ul>
       <nav className="grid grid-cols-3 my-4 bg-gray-200 divide-x divide-gray-400 rounded-lg">
-        <div className="py-2 text-xs font-semibold text-center text-gray-600">
+        <button
+          onClick={() => setDisplayList("newest")}
+          className={`py-2 text-xs font-semibold text-center
+           ${displayList === "newest" ? "text-gray-800" : "text-gray-600"}
+           `}
+        >
           Newest
-        </div>
+        </button>
         <button
           onClick={() => setDisplayList("favorites")}
-          className="py-2 text-xs font-semibold text-center text-gray-800"
+          className={`py-2 text-xs font-semibold text-center
+           ${displayList === "favorites" ? "text-gray-800" : "text-gray-600"}
+           `}
         >
           Favorites
         </button>
         <button
           onClick={() => setDisplayList("random")}
-          className="py-2 text-xs font-semibold text-center text-gray-600"
+          className={`py-2 text-xs font-semibold text-center
+          ${displayList === "random" ? "text-gray-800" : "text-gray-600"}
+          `}
         >
           Random
         </button>
