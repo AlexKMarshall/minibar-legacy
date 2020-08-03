@@ -1,5 +1,5 @@
-const API_URL = "http://localhost:3001/api";
-const REACT_APP_API_URL = API_URL;
+const REACT_APP_API_URL =
+  process.env.REACT_APP_API_URL || "http://localhost:3001/api";
 
 export function client(endpoint, { body, ...customConfig } = {}) {
   const headers = { "Content-Type": "application/json" };
