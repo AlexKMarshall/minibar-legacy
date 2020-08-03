@@ -3,7 +3,10 @@ import { useQuery, useMutation, queryCache } from "react-query";
 
 import Layout from "./../components/Layout";
 
-import { getIngredients, updateSavedIngredient } from "./../utils/api-client";
+import {
+  getIngredients,
+  updateSavedIngredient,
+} from "./../utils/ingredients-client";
 
 export default function Ingredients() {
   const { isLoading, error, data: ingredients } = useQuery(

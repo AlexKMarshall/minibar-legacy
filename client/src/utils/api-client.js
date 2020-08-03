@@ -1,24 +1,6 @@
 const API_URL = "http://localhost:3001/api";
 const REACT_APP_API_URL = API_URL;
 
-export function getIngredients() {
-  return fetch(`${API_URL}/ingredients`)
-    .then((res) => res.json())
-    .then((data) =>
-      data.ingredients.sort((a, b) => {
-        return a.name < b.name ? -1 : 1;
-      })
-    );
-}
-
-export function updateSavedIngredient({ id, action }) {
-  return fetch(`${API_URL}/ingredients/${id}/${action}_saved`, {
-    method: "POST",
-  })
-    .then((res) => res.json())
-    .then((data) => data.ingredient);
-}
-
 export function client(endpoint, { body, ...customConfig } = {}) {
   const headers = { "Content-Type": "application/json" };
   const config = {

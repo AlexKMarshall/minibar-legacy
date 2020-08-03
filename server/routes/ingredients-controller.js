@@ -10,7 +10,7 @@ function ingredientWithSaved(ingredient, { savedIngredients }) {
 }
 
 async function getIngredients(req, res) {
-  const dbResult = await Ingredient.find({});
+  const dbResult = await Ingredient.find({}).sort({ name: 1 });
 
   const { user } = req;
   const ingredients = dbResult.map((dbIngredient) =>
