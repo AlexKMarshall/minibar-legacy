@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { getDrinks } from "../utils/api-client";
 
 import { useQuery } from "react-query";
 import Favorites from "../components/Favorites";
+import Random from "../components/Random";
 import Layout from "../components/Layout";
 
 export default function Discover() {
@@ -12,6 +13,8 @@ export default function Discover() {
     "featured",
     getDrinks
   );
+
+  const [displayList, setDisplayList] = useState("random");
 
   if (isLoading) return "Loading...";
   if (error) return "An error ocurred " + error;
@@ -43,14 +46,31 @@ export default function Discover() {
         <div className="py-2 text-xs font-semibold text-center text-gray-600">
           Newest
         </div>
-        <div className="py-2 text-xs font-semibold text-center text-gray-800">
+        <button
+          onClick={() => setDisplayList("favorites")}
+          className="py-2 text-xs font-semibold text-center text-gray-800"
+        >
           Favorites
-        </div>
-        <div className="py-2 text-xs font-semibold text-center text-gray-600">
+        </button>
+        <button
+          onClick={() => setDisplayList("random")}
+          className="py-2 text-xs font-semibold text-center text-gray-600"
+        >
           Random
-        </div>
+        </button>
       </nav>
-      <Favorites />
+      <SecondaryList type={displayList} />
     </Layout>
   );
+}
+
+function SecondaryList({ type }) {
+  switch (type) {
+    case "random":
+      return <Random />;
+    case "favorites":
+      return <Favorites />;
+    default:
+      return null;
+  }
 }

@@ -12,6 +12,12 @@ export function getFavoriteDrinks() {
     .then((data) => data.drinks);
 }
 
+export function getRandomDrinks() {
+  return fetch(`${API_URL}/drinks/random`)
+    .then((res) => res.json())
+    .then((data) => data.drinks);
+}
+
 export function searchDrinks(_key, searchTerm) {
   return fetch(`${API_URL}/drinks?q=${searchTerm}`)
     .then((res) => res.json())
