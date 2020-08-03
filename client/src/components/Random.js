@@ -2,7 +2,7 @@ import React from "react";
 
 import { useQuery } from "react-query";
 
-import { getRandomDrinks } from "../utils/api-client";
+import { getRandomDrinks } from "../utils/drinks-client";
 import CompactList from "./CompactList";
 
 export default function Random() {

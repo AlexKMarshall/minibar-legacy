@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 
-import { getSingleDrink, updateFav } from "../utils/api-client";
+import { getSingleDrink, updateFav } from "../utils/drinks-client";
 import { useQuery, useMutation, queryCache } from "react-query";
 
 export default function Recipe() {

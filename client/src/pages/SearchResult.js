@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { useQuery } from "react-query";
 
-import { searchDrinks } from "../utils/api-client";
+import { searchDrinks } from "../utils/drinks-client";
 import CompactList from "../components/CompactList";
 import Layout from "../components/Layout";
 

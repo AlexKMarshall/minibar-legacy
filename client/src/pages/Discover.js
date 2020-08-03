@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { getDrinks } from "../utils/api-client";
+import { getDrinks } from "../utils/drinks-client";
 
 import { useQuery } from "react-query";
 import Favorites from "../components/Favorites";

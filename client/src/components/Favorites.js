@@ -2,7 +2,7 @@ import React from "react";
 
 import { useQuery } from "react-query";
 
-import { getFavoriteDrinks } from "../utils/api-client";
+import { getFavoriteDrinks } from "../utils/drinks-client";
 import CompactList from "./CompactList";
 
 export default function Favorites() {
