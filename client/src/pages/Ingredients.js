@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useQuery, useMutation, queryCache } from "react-query";
+import { Route, useParams, useRouteMatch, NavLink } from "react-router-dom";
 
 import Layout from "./../components/Layout";
 
@@ -9,6 +10,44 @@ import {
 } from "./../utils/ingredients-client";
 
 export default function Ingredients() {
+  const { path, url } = useRouteMatch();
+
+  return (
+    <Layout>
+      <h2 className="mb-4 text-2xl font-display">Ingredients</h2>
+      <div className="grid grid-cols-3 my-4 bg-gray-200 divide-x divide-gray-400 rounded-lg">
+        <NavLink
+          to={`${url}/alcohol`}
+          className="py-2 text-xs font-semibold text-center text-gray-600"
+          activeClassName="text-gray-800"
+        >
+          Alcohol
+        </NavLink>
+        <NavLink
+          to={`${url}/non-alcohol`}
+          className="py-2 text-xs font-semibold text-center text-gray-600"
+          activeClassName="text-gray-800"
+        >
+          Non-Alcohol
+        </NavLink>
+        <NavLink
+          to={`${url}/saved`}
+          className="py-2 text-xs font-semibold text-center text-gray-600"
+          activeClassName="text-gray-800"
+        >
+          Saved
+        </NavLink>
+      </div>
+      <Route path={`${path}/:type`}>
+        <IngredientsList />
+      </Route>
+    </Layout>
+  );
+}
+
+function IngredientsList() {
+  const { type } = useParams();
+
   const { isLoading, error, data: ingredients } = useQuery(
     "ingredients",
     getIngredients
@@ -19,8 +58,6 @@ export default function Ingredients() {
       queryCache.invalidateQueries("ingredients");
     },
   });
-
-  const [type, setType] = useState("alcohol");
 
   async function toggleSaved({ _id: id, isSaved }) {
     const action = isSaved ? "remove" : "add";
@@ -47,23 +84,15 @@ export default function Ingredients() {
   if (error) return "An error ocurred " + error;
 
   return (
-    <Layout>
-      <h2 className="mb-4 text-2xl font-display">Ingredients</h2>
-      <div className="flex justify-around mb-4">
-        <button onClick={() => setType("alcohol")}>Alcohol</button>
-        <button onClick={() => setType("non-alcohol")}>Non-Alcohol</button>
-        <button onClick={() => setType("saved")}>Saved</button>
-      </div>
-      <ul className="space-y-3">
-        {ingredients.filter(predicate).map((ingredient) => (
-          <li key={ingredient._id} className="flex justify-between">
-            {ingredient.name}
-            <button onClick={() => toggleSaved(ingredient)}>
-              {ingredient.isSaved ? "-" : "+"}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </Layout>
+    <ul className="space-y-3">
+      {ingredients.filter(predicate).map((ingredient) => (
+        <li key={ingredient._id} className="flex justify-between">
+          {ingredient.name}
+          <button onClick={() => toggleSaved(ingredient)}>
+            {ingredient.isSaved ? "-" : "+"}
+          </button>
+        </li>
+      ))}
+    </ul>
   );
 }
