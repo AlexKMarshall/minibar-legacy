@@ -1169,6 +1169,11 @@ mongodb@3.5.10:
   optionalDependencies:
     saslprep "^1.0.0"
 
+mongoose-cast-aggregation@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/mongoose-cast-aggregation/-/mongoose-cast-aggregation-0.1.0.tgz#697c814537983b757fe5d893a53d9294f5017296"
+  integrity sha512-K4c8QcVcqHgMse0PvBuB2CChOWcYfstBSaAUtcYg1zu4DonlkZ9F97L6z1M/w/UUxgat0qGBzUekV2XrfgDnXQ==
+
 mongoose-legacy-pluralize@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"

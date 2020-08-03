@@ -1,9 +1,12 @@
 const Drink = require("./../models/drink");
 
 function drinkWithFav(drink, { favDrinks }) {
-  if (!favDrinks) return { ...drink.toObject(), isFav: false };
+  if (typeof drink.toObject === "function") {
+    drink = drink.toObject();
+  }
+  if (!favDrinks) return { ...drink, isFav: false };
 
-  return { ...drink.toObject(), isFav: favDrinks.includes(drink._id) };
+  return { ...drink, isFav: favDrinks.includes(drink._id) };
 }
 
 async function getDrinks(req, res) {
@@ -29,6 +32,24 @@ async function getFavoriteDrinks(req, res) {
 
   const dbDrinks = await Drink.find({ _id: { $in: user.favDrinks } });
   const drinks = dbDrinks.map((dbDrink) => drinkWithFav(dbDrink, user));
+  const sortedDrinks = sortByIngredients(drinks, user);
+  res.status(200).json({ drinks: sortedDrinks });
+}
+
+async function getRandomDrinks(req, res) {
+  const DEFAULT_NUMBER = 10;
+  const { num: queryNum } = req.query;
+
+  const num = parseInt(queryNum) || DEFAULT_NUMBER;
+
+  const dbResult = await Drink.aggregate([
+    {
+      $sample: { size: num },
+    },
+  ]);
+
+  const { user } = req;
+  const drinks = dbResult.map((dbDrink) => drinkWithFav(dbDrink, user));
   const sortedDrinks = sortByIngredients(drinks, user);
   res.status(200).json({ drinks: sortedDrinks });
 }
@@ -98,4 +119,5 @@ module.exports = {
   addFavorite,
   removeFavorite,
   getFavoriteDrinks,
+  getRandomDrinks,
 };
