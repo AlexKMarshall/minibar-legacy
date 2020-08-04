@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DrinkName from "./DrinkName";
 
 export default function CompactList({ drinks }) {
   return (
@@ -17,7 +18,9 @@ export default function CompactList({ drinks }) {
           </div>
           <div className="flex-grow px-3 py-2">
             <Link to={`/recipe/${drink._id}`}>
-              <h3 className="font-semibold">{drink.name}</h3>
+              <h3 className="font-semibold">
+                <DrinkName drink={drink} />
+              </h3>
             </Link>
             <p className="text-xs">
               {drink.ingredients.map(({ name }) => name).join(", ")}

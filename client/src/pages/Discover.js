@@ -6,7 +6,7 @@ import { getDrinks } from "../utils/drinks-client";
 import { useQuery } from "react-query";
 import Favorites from "../components/Favorites";
 import Random from "../components/Random";
-import Layout from "../components/Layout";
+import DrinkName from "../components/DrinkName";
 
 export default function Discover() {
   const { isLoading, error, data: featuredDrinks } = useQuery(
@@ -35,7 +35,7 @@ export default function Discover() {
                   />
                 </div>
                 <h3 className="py-4 text-lg font-semibold font-display">
-                  {drink.name}
+                  <DrinkName drink={drink} />
                 </h3>
               </Link>
             </div>
