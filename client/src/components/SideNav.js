@@ -92,7 +92,6 @@ function Menu({ close }) {
               <MenuLink
                 to="/ingredients/alcohol"
                 onClick={close}
-                icon={<HeartOutlineIcon className="w-4 h-4" />}
                 label="Ingredients"
               />
             </li>
@@ -115,7 +114,7 @@ function MenuLink({ to, onClick, icon, label }) {
   return (
     <NavLink to={to} exact onClick={onClick} activeClassName="text-gray-100">
       <div className="flex items-center">
-        <div className="mr-3">{icon}</div>
+        <div className="flex-shrink-0 w-4 h-4 mr-3">{icon}</div>
         <div>{label}</div>
       </div>
     </NavLink>
