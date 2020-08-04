@@ -90,7 +90,7 @@ function Menu({ close }) {
             </li>
             <li>
               <MenuLink
-                to="/ingredients"
+                to="/ingredients/alcohol"
                 onClick={close}
                 icon={<HeartOutlineIcon className="w-4 h-4" />}
                 label="Ingredients"
