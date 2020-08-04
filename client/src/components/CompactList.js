@@ -6,7 +6,7 @@ export default function CompactList({ drinks }) {
     <ul className="space-y-3">
       {drinks.map((drink) => (
         <li key={drink._id} className="flex">
-          <div className="w-1/6">
+          <div className="self-center flex-shrink-0 w-1/6">
             <div className="relative overflow-hidden rounded pb-5/4">
               <img
                 src={drink.image}
