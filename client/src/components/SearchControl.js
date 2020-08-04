@@ -6,6 +6,7 @@ export default function SearchControl({ onSearchSubmit }) {
   function onSubmit(e) {
     e.preventDefault();
     onSearchSubmit(searchTerm);
+    setSearchTerm("");
   }
 
   return (

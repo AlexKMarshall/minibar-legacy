@@ -67,8 +67,8 @@ function Menu({ close }) {
           className="text-gray-500"
         >
           <Link to="/" onClick={close}>
-            <h2 className="mb-6 text-2xl text-gray-100 font-display">
-              Minibar
+            <h2 className="mb-6 text-2xl text-gray-100 border-b-2 border-yellow-500 font-display">
+              MiniBar
             </h2>
           </Link>
           <ul className="space-y-6">
