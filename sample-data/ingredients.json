@@ -92,7 +92,6 @@
 {"_id":{"$oid":"5f2578a8163b9459c9566edf"},"externalId":"440","name":"Sambuca","alcohol":true,"__v":0}
 {"_id":{"$oid":"5f2578a9163b9459c9566ee0"},"externalId":"120","name":"Cider","alcohol":true,"__v":0}
 {"_id":{"$oid":"5f2578a9163b9459c9566ee1"},"externalId":"466","name":"Sprite","alcohol":false,"__v":0}
-{"_id":{"$oid":"5f2578a9163b9459c9566ee2"},"externalId":"572","name":"7-up","alcohol":false,"__v":0}
 {"_id":{"$oid":"5f2578a9163b9459c9566ee3"},"externalId":"61","name":"Blackberry Brandy","alcohol":true,"__v":0}
 {"_id":{"$oid":"5f2578a9163b9459c9566ee4"},"externalId":"388","name":"Peppermint Schnapps","alcohol":true,"__v":0}
 {"_id":{"$oid":"5f2578a9163b9459c9566ee5"},"externalId":"165","name":"Creme De Cassis","alcohol":true,"__v":0}
@@ -104,7 +103,6 @@
 {"_id":{"$oid":"5f26dad61d906d0760369475"},"alcohol":false,"name":"Lemon juice","__v":0}
 {"_id":{"$oid":"5f26dad61d906d0760369476"},"alcohol":true,"name":"Absolut Vodka","__v":0}
 {"_id":{"$oid":"5f26dad61d906d0760369477"},"alcohol":false,"name":"Tonic water","__v":0}
-{"_id":{"$oid":"5f26dad61d906d0760369478"},"alcohol":true,"name":"151 proof rum","__v":0}
 {"_id":{"$oid":"5f26dad61d906d0760369479"},"alcohol":true,"name":"Wild Turkey","__v":0}
 {"_id":{"$oid":"5f26dad61d906d076036947a"},"alcohol":false,"name":"Grapefruit juice","__v":0}
 {"_id":{"$oid":"5f26dad61d906d076036947b"},"alcohol":true,"name":"Strawberry schnapps","__v":0}
@@ -275,7 +273,6 @@
 {"_id":{"$oid":"5f26dad71d906d0760369520"},"alcohol":false,"name":"Kool-Aid","__v":0}
 {"_id":{"$oid":"5f26dad71d906d0760369521"},"alcohol":false,"name":"Papaya","__v":0}
 {"_id":{"$oid":"5f26dad71d906d0760369522"},"alcohol":false,"name":"Lime peel","__v":0}
-{"_id":{"$oid":"5f26dad71d906d0760369523"},"alcohol":true,"name":"Angostura bitters","__v":0}
 {"_id":{"$oid":"5f26dad71d906d0760369524"},"alcohol":true,"name":"Drambuie","__v":0}
 {"_id":{"$oid":"5f26dad71d906d0760369525"},"alcohol":false,"name":"Asafoetida","__v":0}
 {"_id":{"$oid":"5f26dad71d906d0760369526"},"alcohol":false,"name":"Cayenne pepper","__v":0}
@@ -314,7 +311,6 @@
 {"_id":{"$oid":"5f26dad71d906d0760369547"},"alcohol":true,"name":"Lime vodka","__v":0}
 {"_id":{"$oid":"5f26dad71d906d0760369548"},"alcohol":true,"name":"Black Sambuca","__v":0}
 {"_id":{"$oid":"5f26dad71d906d0760369549"},"alcohol":false,"name":"Raspberry syrup","__v":0}
-{"_id":{"$oid":"5f26dad71d906d076036954a"},"alcohol":false,"name":"7-Up","__v":0}
 {"_id":{"$oid":"5f26dad81d906d076036954b"},"alcohol":true,"name":"Crown Royal","__v":0}
 {"_id":{"$oid":"5f26dad81d906d076036954c"},"alcohol":false,"name":"Tonic Water","__v":0}
 {"_id":{"$oid":"5f26dad81d906d076036954d"},"alcohol":false,"name":"Rosemary","__v":0}
@@ -334,7 +330,7 @@
 {"_id":{"$oid":"5f26dad81d906d076036955b"},"alcohol":true,"name":"Rosso Vermouth","__v":0}
 {"_id":{"$oid":"5f26dad81d906d076036955c"},"alcohol":true,"name":"Melon Liqueur","__v":0}
 {"_id":{"$oid":"5f26dad81d906d076036955d"},"alcohol":true,"name":"Yukon Jack","__v":0}
-{"_id":{"$oid":"5f26dad81d906d076036955e"},"alcohol":true,"name":"Agave syrup","__v":0}
+{"_id":{"$oid":"5f26dad81d906d076036955e"},"alcohol":false,"name":"Agave syrup","__v":0}
 {"_id":{"$oid":"5f26dad81d906d076036955f"},"alcohol":true,"name":"Lillet Blanc","__v":0}
 {"_id":{"$oid":"5f26dad81d906d0760369560"},"alcohol":true,"name":"Maple syrup","__v":0}
 {"_id":{"$oid":"5f26dad81d906d0760369561"},"alcohol":true,"name":"Limeade","__v":0}

@@ -100,8 +100,12 @@ function sortByIngredients(drinks, { savedIngredients }) {
   const result = [];
   for (const drink of drinks) {
     const matchedIngredients = drink.ingredients
-      .map((ingredient) => ingredient.name)
-      .filter((name) => savedIngredients.includes(name));
+      .map((ingredient) => ingredient.name.toLowerCase())
+      .filter((name) =>
+        savedIngredients
+          .map((savedIngredient) => savedIngredient.toLowerCase())
+          .includes(name)
+      );
     const updatedDrink = { ...drink, matchedIngredients };
     result.push(updatedDrink);
   }
