@@ -22,7 +22,7 @@ export default function Discover() {
   return (
     <Layout>
       <h2 className="mb-4 text-2xl font-display">Featured drinks</h2>
-      <ul className="flex px-6 -mx-6 overflow-x-auto">
+      <ul className="flex px-8 -mx-8 overflow-x-auto">
         {featuredDrinks.map((drink) => (
           <li key={drink._id} className="flex-shrink-0 w-3/4">
             <div className="mr-4">

@@ -14,14 +14,14 @@ export default function Layout({ children }) {
   return (
     <>
       <LayoutHeader onSearchSubmit={onSearchSubmit} />
-      <main className="min-h-screen p-6 pt-0 bg-gray-300">{children}</main>
+      <main className="min-h-screen p-8 pt-0 bg-gray-300">{children}</main>
     </>
   );
 }
 
 function LayoutHeader({ onSearchSubmit }) {
   return (
-    <header className="p-6 pt-10">
+    <header className="p-8 pt-12">
       <div className="flex justify-between mb-6">
         <SideNav />
         <SearchControl onSearchSubmit={onSearchSubmit} />
