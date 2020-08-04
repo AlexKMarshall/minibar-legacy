@@ -8,6 +8,7 @@ import Recipe from "./pages/Recipe";
 import SearchResult from "./pages/SearchResult";
 import Favorites from "./pages/Favorites";
 import Ingredients from "./pages/Ingredients";
+import Layout from "./components/Layout";
 
 function App() {
   return (
@@ -17,18 +18,20 @@ function App() {
           <Route path="/recipe/:id">
             <Recipe />
           </Route>
-          <Route path="/search">
-            <SearchResult />
-          </Route>
-          <Route path="/favorites">
-            <Favorites />
-          </Route>
-          <Route path="/ingredients">
-            <Ingredients />
-          </Route>
-          <Route path="/">
-            <Discover />
-          </Route>
+          <Layout>
+            <Route path="/search">
+              <SearchResult />
+            </Route>
+            <Route path="/favorites">
+              <Favorites />
+            </Route>
+            <Route path="/ingredients">
+              <Ingredients />
+            </Route>
+            <Route exact path="/">
+              <Discover />
+            </Route>
+          </Layout>
         </Switch>
       </Router>
       {/* <ReactQueryDevtools /> */}

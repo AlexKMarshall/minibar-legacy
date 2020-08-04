@@ -20,7 +20,7 @@ export default function Discover() {
   if (error) return "An error ocurred " + error;
 
   return (
-    <Layout>
+    <>
       <h2 className="mb-4 text-2xl font-display">Featured drinks</h2>
       <ul className="flex px-8 -mx-8 overflow-x-auto">
         {featuredDrinks.map((drink) => (
@@ -69,7 +69,7 @@ export default function Discover() {
         </button>
       </nav>
       <SecondaryList type={displayList} />
-    </Layout>
+    </>
   );
 }
 

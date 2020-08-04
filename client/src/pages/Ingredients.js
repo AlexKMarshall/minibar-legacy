@@ -13,7 +13,7 @@ export default function Ingredients() {
   const { path, url } = useRouteMatch();
 
   return (
-    <Layout>
+    <>
       <h2 className="mb-4 text-2xl font-display">Ingredients</h2>
       <div className="grid grid-cols-3 my-4 bg-gray-200 divide-x divide-gray-400 rounded-lg">
         <NavLink
@@ -41,7 +41,7 @@ export default function Ingredients() {
       <Route path={`${path}/:type`}>
         <IngredientsList />
       </Route>
-    </Layout>
+    </>
   );
 }
 

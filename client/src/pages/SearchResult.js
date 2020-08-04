@@ -24,11 +24,11 @@ export default function Discover() {
   if (error) return "An error ocurred " + error;
 
   return (
-    <Layout>
+    <>
       <h2 className="mb-4 text-xl font-display">
         Search results for {searchTerm}
       </h2>
       {drinks.length ? <CompactList drinks={drinks} /> : "No results found"}
-    </Layout>
+    </>
   );
 }
