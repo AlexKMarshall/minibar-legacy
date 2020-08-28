@@ -1,15 +1,47 @@
 # minibar
 
-Drinks inspiration
+Minibar is drinks inspiration, for when you've run out of ideas, or just want something cool to drink
 
-## Installation and running
+## Screenshots
 
-To install dependencies, run `yarn install` in the root folder.
-Make sure you have MongoDB installed and running on the default port with `sudo service mongodb start`
-With MongoDB service started, run `yarn run init:db` to load an initial set of sample data into the database
-Then run `yarn start` to start the server and client in development mode. The app will be served at http://localhost:3000
+<img src="./public/Minibar.png" align="center"/>
 
-## In Use
+## Getting started
 
-The app is designed for mobile use, so for best results on desktop, view the app in responsive mode by opening the browser
-devtools, and selecting a mobile device such as Pixel 2 from the device dropdown
+1. Clone the repo
+
+```
+git clone https://github.com/AlexKMarshall/minibar.git
+cd minibar
+```
+
+2. Install dependencies
+
+```
+yarn install
+```
+
+3. Run mongodb service
+
+```
+sudo service mongodb start
+```
+
+4. Start the app
+
+```
+yarn start
+```
+
+## Tech Stack
+
+### Front-end
+
+- [React](https://reactjs.org/)
+- [React-query](https://react-query.tanstack.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+### Back-end
+
+- [Express](https://expressjs.com/)
+- [MongoDb](https://www.mongodb.com/)

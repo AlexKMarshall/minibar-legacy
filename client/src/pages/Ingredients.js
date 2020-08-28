@@ -2,8 +2,6 @@ import React from "react";
 import { useQuery, useMutation, queryCache } from "react-query";
 import { Route, useParams, useRouteMatch, NavLink } from "react-router-dom";
 
-import Layout from "./../components/Layout";
-
 import {
   getIngredients,
   updateSavedIngredient,

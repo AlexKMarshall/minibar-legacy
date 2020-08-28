@@ -1,6 +1,5 @@
 import React from "react";
 import FavoritesComponent from "../components/Favorites";
-import Layout from "../components/Layout";
 
 export default function Favorites() {
   return (

@@ -4,7 +4,6 @@ import { useQuery } from "react-query";
 
 import { searchDrinks } from "../utils/drinks-client";
 import CompactList from "../components/CompactList";
-import Layout from "../components/Layout";
 
 function useSearchTerm() {
   const query = new URLSearchParams(useLocation().search);
