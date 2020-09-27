@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ReactComponent as HamburgerIcon } from "./../assets/hamburger-icon.svg";
 import { ReactComponent as HomeIcon } from "./../assets/home-icon.svg";
 import { ReactComponent as HeartOutlineIcon } from "./../assets/heart-outline-icon.svg";
+import LoginButton from "./LoginButton";
 
 const sidebarVariant = {
   open: {
@@ -94,6 +95,9 @@ function Menu({ close }) {
                 onClick={close}
                 label="Ingredients"
               />
+            </li>
+            <li>
+              <LoginButton />
             </li>
           </ul>
         </motion.nav>
