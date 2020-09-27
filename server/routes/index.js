@@ -21,4 +21,10 @@ router.post(
   ingredientsController.removeSaved
 );
 
-module.exports = router;
+const authRouter = express.Router();
+
+authRouter.get("/authorized", (req, res) => {
+  res.status(200).json({ message: "successfully accessed hidden route" });
+});
+
+module.exports = { router, authRouter };
