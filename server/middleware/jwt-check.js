@@ -11,6 +11,7 @@ const jwtCheck = jwt({
   audience: "http://localhost:3001/api",
   issuer: "https://dev-g7dchufc.eu.auth0.com/",
   algorithms: ["RS256"],
+  requestProperty: "auth",
+  credentialsRequired: false,
 });
-
 module.exports = { jwtCheck };
