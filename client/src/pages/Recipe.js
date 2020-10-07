@@ -1,23 +1,22 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 
-import { getSingleDrink, updateFav } from "../utils/drinks-client";
-import { useQuery, useMutation, queryCache } from "react-query";
+import { useGetSingleDrink, useUpdateFavorite } from "../hooks/drinks";
+
+function useLoggedInAction(action) {
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
+
+  return isAuthenticated ? action : loginWithRedirect;
+}
 
 export default function Recipe() {
   const { id } = useParams();
   const history = useHistory();
 
-  const { isLoading, error, data: drink } = useQuery(
-    ["drink", id],
-    getSingleDrink
-  );
+  const { isLoading, error, data: drink } = useGetSingleDrink(id);
 
-  const [mutate] = useMutation(updateFav, {
-    onSuccess: (data) => {
-      queryCache.setQueryData(["drink", id], data);
-    },
-  });
+  const [mutate] = useUpdateFavorite(id);
 
   async function toggleFave() {
     const action = drink.isFav ? "remove" : "add";
@@ -28,6 +27,8 @@ export default function Recipe() {
       console.log("something went wrong ", e);
     }
   }
+
+  const toggleFaveOrLogin = useLoggedInAction(toggleFave);
 
   if (isLoading) return "Loading...";
   if (error) return "An error ocurred " + error;
@@ -78,7 +79,7 @@ export default function Recipe() {
       <footer className="flex justify-center p-8">
         <button
           className={`py-2 px-3 rounded bg-gray-700 text-gray-100 text-sm`}
-          onClick={toggleFave}
+          onClick={toggleFaveOrLogin}
         >
           {drink.isFav ? "Remove favorite" : "Add as favorite"}
         </button>

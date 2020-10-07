@@ -1,6 +1,8 @@
 const express = require("express");
 const drinksController = require("./drinks-controller");
 const ingredientsController = require("./ingredients-controller");
+const { jwtCheck } = require("../middleware/jwt-check");
+const { appendUser } = require("../middleware/user-validator");
 
 const router = express.Router();
 
@@ -21,4 +23,4 @@ router.post(
   ingredientsController.removeSaved
 );
 
-module.exports = router;
+module.exports = { router };

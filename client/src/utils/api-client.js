@@ -1,15 +1,18 @@
+import { useAuth0 } from "@auth0/auth0-react";
+import { useCallback } from "react";
+
 const REACT_APP_API_URL =
   process.env.REACT_APP_API_URL || "http://localhost:3001/api";
 
-export function client(endpoint, { body, ...customConfig } = {}) {
-  const headers = { "Content-Type": "application/json" };
+export function client(endpoint, { body, token, ...customConfig } = {}) {
+  const headers = new Headers();
+  headers.append("Content-Type", "application/json");
+  if (token) headers.append("Authorization", `Bearer ${token}`);
+
   const config = {
     method: body ? "POST" : "GET",
     ...customConfig,
-    headers: {
-      ...headers,
-      ...customConfig.headers,
-    },
+    headers,
   };
   if (body) {
     config.body = JSON.stringify(body);
@@ -26,4 +29,18 @@ export function client(endpoint, { body, ...customConfig } = {}) {
         return Promise.reject(data);
       }
     });
+}
+
+export function useAuthClient() {
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
+
+  return useCallback(
+    async (endpoint, config) => {
+      const token = isAuthenticated
+        ? await getAccessTokenSilently()
+        : undefined;
+      return client(endpoint, { ...config, token });
+    },
+    [isAuthenticated, getAccessTokenSilently]
+  );
 }

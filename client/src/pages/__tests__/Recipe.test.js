@@ -52,7 +52,7 @@ const fakeDrink = {
   isFav: false,
 };
 
-test("Displays a drink and allows it to be added to favorites", async () => {
+xtest("Displays a drink and allows it to be added to favorites", async () => {
   mockGetSingleDrink.mockResolvedValueOnce(fakeDrink);
   render(
     <MemoryRouter initialEntries={[`/recipe/${fakeDrink._id}`]}>

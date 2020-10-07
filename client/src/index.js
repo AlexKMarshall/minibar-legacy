@@ -4,10 +4,18 @@ import "./index.css";
 import "./tailwind.output.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Auth0Provider
+      domain="dev-g7dchufc.eu.auth0.com"
+      clientId="frVLAhwMqeCc2mGPj9kIEQ8C1dwmW1cI"
+      redirectUri={window.location.origin}
+      audience="http://localhost:3001/api"
+    >
+      <App />
+    </Auth0Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

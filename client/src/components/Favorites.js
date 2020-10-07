@@ -1,15 +1,10 @@
 import React from "react";
 
-import { useQuery } from "react-query";
-
-import { getFavoriteDrinks } from "../utils/drinks-client";
+import { useGetFavoriteDrinks } from "../hooks/drinks";
 import CompactList from "./CompactList";
 
 export default function Favorites() {
-  const { isLoading, error, data: drinks } = useQuery(
-    "favorites",
-    getFavoriteDrinks
-  );
+  const { isLoading, error, data: drinks } = useGetFavoriteDrinks();
 
   if (isLoading) return "Loading...";
 

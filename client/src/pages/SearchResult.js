@@ -1,9 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { useQuery } from "react-query";
-
-import { searchDrinks } from "../utils/drinks-client";
 import CompactList from "../components/CompactList";
+import { useSearchDrinks } from "../hooks/drinks";
 
 function useSearchTerm() {
   const query = new URLSearchParams(useLocation().search);
@@ -14,10 +12,7 @@ function useSearchTerm() {
 export default function Discover() {
   const { searchTerm } = useSearchTerm();
 
-  const { isLoading, error, data: drinks } = useQuery(
-    ["search", searchTerm],
-    searchDrinks
-  );
+  const { isLoading, error, data: drinks } = useSearchDrinks(searchTerm);
 
   if (isLoading) return "Loading...";
   if (error) return "An error ocurred " + error;
