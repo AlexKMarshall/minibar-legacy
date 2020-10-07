@@ -1,15 +1,9 @@
 import React from "react";
-import { useQuery, useMutation, queryCache } from "react-query";
 import { Route, useParams, useRouteMatch, NavLink } from "react-router-dom";
 import {
   useGetIngredients,
   useUpdateSavedIngredient,
 } from "../hooks/ingredients";
-
-import {
-  getIngredients,
-  updateSavedIngredient,
-} from "./../utils/ingredients-client";
 
 export default function Ingredients() {
   const { path, url } = useRouteMatch();
