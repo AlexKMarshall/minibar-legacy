@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
 
 // import { ReactQueryDevtools } from "react-query-devtools";
 
@@ -12,9 +11,6 @@ import Ingredients from "./pages/Ingredients";
 import Layout from "./components/Layout";
 
 function App() {
-  const auth = useAuth0();
-  console.log("the user: ");
-  console.log(auth.user);
   return (
     <div className="relative max-w-screen-sm min-h-screen mx-auto bg-gray-300">
       <Router>

@@ -1,15 +1,11 @@
 import React from "react";
 
-import { useQuery } from "react-query";
+import { useGetRandomDrinks } from "../hooks/drinks";
 
-import { getRandomDrinks } from "../utils/drinks-client";
 import CompactList from "./CompactList";
 
 export default function Random() {
-  const { isLoading, error, data: drinks } = useQuery(
-    "random",
-    getRandomDrinks
-  );
+  const { isLoading, error, data: drinks } = useGetRandomDrinks();
 
   if (isLoading) return "Loading...";
 

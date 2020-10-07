@@ -1,6 +1,10 @@
 import React from "react";
 import { useQuery, useMutation, queryCache } from "react-query";
 import { Route, useParams, useRouteMatch, NavLink } from "react-router-dom";
+import {
+  useGetIngredients,
+  useUpdateSavedIngredient,
+} from "../hooks/ingredients";
 
 import {
   getIngredients,
@@ -46,16 +50,9 @@ export default function Ingredients() {
 function IngredientsList() {
   const { type } = useParams();
 
-  const { isLoading, error, data: ingredients } = useQuery(
-    "ingredients",
-    getIngredients
-  );
+  const { isLoading, error, data: ingredients } = useGetIngredients();
 
-  const [mutate] = useMutation(updateSavedIngredient, {
-    onSuccess: () => {
-      queryCache.invalidateQueries("ingredients");
-    },
-  });
+  const [mutate] = useUpdateSavedIngredient();
 
   async function toggleSaved({ _id: id, isSaved }) {
     const action = isSaved ? "remove" : "add";

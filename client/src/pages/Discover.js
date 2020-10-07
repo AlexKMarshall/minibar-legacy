@@ -1,18 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { getDrinks } from "../utils/drinks-client";
-
-import { useQuery } from "react-query";
 import Favorites from "../components/Favorites";
 import Random from "../components/Random";
 import DrinkName from "../components/DrinkName";
+import { useGetDrinks } from "../hooks/drinks";
 
 export default function Discover() {
-  const { isLoading, error, data: featuredDrinks } = useQuery(
-    "featured",
-    getDrinks
-  );
+  const { isLoading, error, data: featuredDrinks } = useGetDrinks();
 
   const [displayList, setDisplayList] = useState("random");
 

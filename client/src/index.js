@@ -12,6 +12,7 @@ ReactDOM.render(
       domain="dev-g7dchufc.eu.auth0.com"
       clientId="frVLAhwMqeCc2mGPj9kIEQ8C1dwmW1cI"
       redirectUri={window.location.origin}
+      audience="http://localhost:3001/api"
     >
       <App />
     </Auth0Provider>
