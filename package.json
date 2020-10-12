@@ -4,7 +4,7 @@
     "init:db": "yarn run import:users && yarn run import:drinks",
     "import:users": "mongoimport --db=minibar --file=./sample-data/users.json --drop",
     "import:drinks": "mongoimport --db=minibar --file=./sample-data/drinks.json --drop",
-    "start": "yarn run start:server-client",
+    "start": "yarn run start:server",
     "start:client": "cd ./client && BROWSER=none yarn start && cd ..",
     "start:server": "node ./server",
     "start:server-client": "start-test start:server 3001/api/drinks start:client",
