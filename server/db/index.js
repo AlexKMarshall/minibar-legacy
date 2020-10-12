@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 const castAggregation = require("mongoose-cast-aggregation");
+require("dotenv").config();
 
 mongoose.plugin(castAggregation);
 
-const DB_PORT = process.env.DB_PORT || 27017;
-const DB_NAME = process.env.DB_NAME || "minibar";
+const DB_URI = process.env.DB_URI;
 
 mongoose.connect(
-  `mongodb://localhost:${DB_PORT}/${DB_NAME}`,
+  DB_URI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -16,7 +16,7 @@ mongoose.connect(
     if (err) {
       console.log(`😢 Something went wrong with the database: ${err}`);
     } else {
-      console.log(`🍾 Database connected @ port: ${DB_PORT}`);
+      console.log(`🍾 Database connected`);
     }
   }
 );
