@@ -8,8 +8,7 @@
     "start:client": "cd ./client && BROWSER=none yarn start && cd ..",
     "start:server": "node ./server",
     "start:server-client": "start-test start:server 3001/api/drinks start:client",
-    "build": "cd ./client && yarn build",
-    "heroku-postbuild": "cd client && yarn && yarn run build",
+    "build": "cd ./client && yarn && yarn build",
     "test": "cd ./client && yarn run test:coverage",
     "lint": "cd ./client && yarn run lint"
   },
