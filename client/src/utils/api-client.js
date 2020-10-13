@@ -2,7 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useCallback } from "react";
 
 const REACT_APP_API_URL =
-  process.env.REACT_APP_API_URL || "http://localhost:3001/api";
+  process.env.REACT_APP_API_URL;
 
 export function client(endpoint, { body, token, ...customConfig } = {}) {
   const headers = new Headers();
